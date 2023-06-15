@@ -1,0 +1,54 @@
+.adminReview {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.adminReview .heading {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.adminReview .reviewContainer {
+  background-color: #006270;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 0.7rem;
+  border-radius: 8px;
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+.adminReview .review {
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e4e4e4a1;
+  gap: 1rem;
+  color: #ffffff;
+}
+
+.adminReview .review .customerName {
+  color: #e4e4e4a1;
+  word-spacing: 0.15rem;
+  letter-spacing: 0.25rem;
+  font-weight: 450;
+}
+
+.adminReview .review .reviewInformation {
+  font-size: 0.95rem;
+}
+.adminReview .review img {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.adminReview .information {
+  width: 80%;
+}

@@ -1,0 +1,344 @@
+.adminMedicineList {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 58px auto;
+  transition: all 0.4s ease;
+  background-color: #e4e4e4;
+}
+.adminMedicineList.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 11rem auto;
+  background-color: #e4e4e4;
+  transition: all 0.4s ease;
+}
+
+.adminMedicineList .medicineListMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.adminMedicineList .medicineList {
+  padding: 0 1.5rem;
+}
+
+.adminMedicineList .medicineList .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+}
+
+.adminMedicineList .medicineList .cardContainer {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  height: 75vh;
+}
+
+.adminMedicineList .medicineList .cardNavbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  /* background-color: #006270;
+  color: #ffffff; */
+}
+
+.adminMedicineList .medicineList .card_heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.adminMedicineList .medicineList .search {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.adminMedicineList .medicineList .search img {
+  width: 23px;
+}
+
+.adminMedicineList .medicineList .search input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  padding: 0.2rem;
+  background-color: transparent;
+  width: 90%;
+}
+
+.adminMedicineList .medicineList .addButton {
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #006270;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.adminMedicineList .medicineList .addButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.adminMedicineList .medicineList .card {
+  margin-top: 1rem;
+  overflow-x: scroll;
+}
+
+.adminMedicineList .medicineList .titles {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 1rem 0;
+  background-color: #006270;
+  color: #ffffff;
+}
+
+.adminMedicineList .medicineList .titles > div {
+  min-width: 10rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.adminMedicineList .medicineList .datas {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.5rem; */
+}
+.adminMedicineList .medicineList .data {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+.adminMedicineList .medicineList .data:hover {
+  background-color: #25252518;
+  .batch {
+    color: #006270;
+  }
+}
+.adminMedicineList .medicineList .data > div {
+  min-width: 10rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #252525;
+  padding: 0.5rem 0;
+}
+
+.adminMedicineList .medicineList .data .productName {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1rem;
+}
+.adminMedicineList .medicineList .data .productName img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.adminMedicineList .medicineList .actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.adminMedicineList .medicineList .actions img {
+  cursor: pointer;
+}
+
+.adminMedicineList .batch {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .adminMedicineList {
+    grid-template-columns: auto;
+  }
+}
+
+.adminMedicineList .medicineListMain .addMedicineRightBar {
+  position: absolute;
+  width: 25rem;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  top: 0;
+  right: 0;
+  z-index: 1056;
+  transition: 0.3s;
+}
+.adminMedicineList .medicineListMain .hideRightBar {
+  display: none;
+}
+
+.adminMedicineList .addMedicineRightBar .rightBar-Header {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 0.5rem;
+}
+.adminMedicineList .addMedicineRightBar .rightBar-Header .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+}
+
+.adminMedicineList .addMedicineRightBar .rightBar-body {
+  padding: 0 0.5rem;
+  height: 90vh;
+  overflow-y: scroll;
+}
+.adminMedicineList .addMedicineRightBar form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+.adminMedicineList .addMedicineRightBar form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.adminMedicineList .addMedicineRightBar form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+}
+
+.adminMedicineList .addMedicineRightBar .addMedIcon {
+  color: #7f7f7f;
+}
+
+.adminMedicineList .addMedicineRightBar form .flex {
+  border-bottom: 1px solid #006270;
+  display: flex;
+  align-items: center;
+}
+
+.adminMedicineList .addMedicineRightBar .rightBar-body .title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.adminMedicineList .addMedicineRightBar .buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.adminMedicineList .addMedicineRightBar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.adminMedicineList .addMedicineRightBar #plusIcon,
+.adminMedicineList .addMedicineRightBar #closeIcon {
+  width: 1.25rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+}
+
+.adminMedicineList .addMedicineRightBar #plusIcon {
+  background-color: #23b0c579;
+  color: #006270;
+}
+
+.adminMedicineList .addMedicineRightBar #closeIcon {
+  background-color: rgba(207, 67, 67, 0.836);
+  color: red;
+}
+
+/* ---------- DELETE - DIALOG ------------ */
+
+.adminMedicineList .deleteDialog {
+  background: rgba(0, 0, 0, 0.301);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+.adminMedicineList .deleteDialog img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.adminMedicineList .deleteDialog .card {
+  background-color: white;
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.4rem 1.35rem;
+  border-radius: 20px;
+}
+
+.adminMedicineList .deleteDialog .text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  width: 12em;
+  margin: 0 auto;
+}
+
+.adminMedicineList .deleteDialog .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adminMedicineList .deleteDialog .yesBtn,
+.adminMedicineList .deleteDialog .noBtn {
+  font-size: 1.125rem;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.adminMedicineList .deleteDialog .yesBtn {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+.adminMedicineList .deleteDialog .noBtn {
+  border: 1px solid rgb(167, 166, 166);
+}
+
+.adminMedicineList .hideDeleteDialog {
+  display: none;
+}

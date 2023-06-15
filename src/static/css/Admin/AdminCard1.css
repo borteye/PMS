@@ -1,0 +1,85 @@
+.adminCard1 {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.adminCard1 .cardContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adminCard1 .card {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.adminCard1 .card #commandIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #006270;
+  color: #ffffff;
+}
+
+.adminCard1 .card .details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.adminCard1 .card .title {
+  font-weight: 500;
+  color: #6d6d6d;
+}
+.adminCard1 .card .amount {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.adminCard1 .chart {
+  padding: 3%;
+}
+
+@media screen and (max-width: 1107px) {
+  .adminCard1 .card .amount {
+    font-size: 1.3rem;
+  }
+  .adminCard1 .card .title {
+    font-size: 0.87rem;
+  }
+}
+
+@media screen and (max-width: 1069px) {
+  .adminCard1 .card {
+    padding: 0.5rem 1rem;
+  }
+  .adminCard1 .chart {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1048px) {
+  .adminCard1 .cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    width: 98%;
+  }
+
+  .adminCard1 .card {
+    width: 92%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+}

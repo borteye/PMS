@@ -1,0 +1,9 @@
+.pharmacistDashboard {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 11rem auto;
+  background-color: violet;
+}

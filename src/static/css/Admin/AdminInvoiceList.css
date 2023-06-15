@@ -1,0 +1,245 @@
+.adminInvoiceList {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #e4e4e4;
+  grid-template-columns: 58px auto;
+  transition: all 0.4s ease;
+}
+.adminInvoiceList.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 11rem auto;
+  transition: all 0.4s ease;
+  background-color: #e4e4e4;
+}
+
+.adminInvoiceList .invoiceListMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.adminInvoiceList .invoiceList {
+  padding: 0 1.5rem;
+}
+
+.adminInvoiceList .invoiceList .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+}
+
+.adminInvoiceList .invoiceList .cardContainer {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  height: 75vh;
+}
+
+.adminInvoiceList .invoiceList .cardNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.adminInvoiceList .invoiceList .card_heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.adminInvoiceList .invoiceList .search {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.adminInvoiceList .invoiceList .search img {
+  width: 23px;
+}
+
+.adminInvoiceList .invoiceList .search input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  padding: 0.2rem;
+  width: 90%;
+  background-color: transparent;
+}
+
+.adminInvoiceList .invoiceList .card {
+  margin-top: 1rem;
+  overflow-x: scroll;
+}
+
+.adminInvoiceList .invoiceList .titles {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 1rem 0;
+  background-color: #006270;
+  color: #ffffff;
+}
+
+.adminInvoiceList .invoiceList .titles > div {
+  min-width: 10.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.adminInvoiceList .invoiceList .datas {
+  display: flex;
+  flex-direction: column;
+}
+.adminInvoiceList .invoiceList .data {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+.adminInvoiceList .invoiceList .data:hover {
+  background-color: #25252518;
+  .orderId {
+    color: #11a9c0;
+  }
+}
+
+.adminInvoiceList .invoiceList .data > div {
+  min-width: 10.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #252525;
+  padding: 0.5rem 0;
+}
+
+.adminInvoiceList .invoiceList .data .productName {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1rem;
+}
+.adminInvoiceList .invoiceList .data .productName img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.adminInvoiceList .invoiceList .titles .invoiceId,
+.adminInvoiceList .invoiceList .data .invoiceId {
+  min-width: 5rem;
+}
+
+.adminInvoiceList .invoiceList .data .invoice_status {
+  background: rgb(178, 240, 178);
+  color: rgb(60, 104, 60);
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+  border-radius: 15px;
+}
+
+.adminInvoiceList .invoiceList .actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.adminInvoiceList .invoiceList .actions img {
+  width: 22px;
+}
+
+/* ---------- DELETE - DIALOG ------------ */
+
+.adminInvoiceList .deleteDialog {
+  background: rgba(0, 0, 0, 0.301);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+.adminInvoiceList .deleteDialog img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.adminInvoiceList .deleteDialog .card {
+  background-color: white;
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.4rem 1.35rem;
+  border-radius: 20px;
+}
+
+.adminInvoiceList .deleteDialog .text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  width: 12em;
+  margin: 0 auto;
+}
+
+.adminInvoiceList .deleteDialog .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adminInvoiceList .deleteDialog .yesBtn,
+.adminInvoiceList .deleteDialog .noBtn {
+  font-size: 1.125rem;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.adminInvoiceList .deleteDialog .yesBtn {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+.adminInvoiceList .deleteDialog .noBtn {
+  border: 1px solid rgb(167, 166, 166);
+}
+
+.adminInvoiceList .hideDeleteDialog {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .adminInvoiceList {
+    grid-template-columns: auto;
+  }
+}

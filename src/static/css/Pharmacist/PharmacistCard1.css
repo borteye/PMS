@@ -1,0 +1,50 @@
+.pharmacistCard1 {
+  width: 100%;
+}
+
+.pharmacistCard1 .cardContainer {
+  /* width: %; */
+  /* margin: 0 auto; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pharmacistCard1 .columns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pharmacistCard1 .card {
+  background-color: white;
+  /* width: 220px; */
+  width: 70%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 3px;
+}
+
+.pharmacistCard1 .icon_percentageGrowth {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pharmacistCard1 .icon img {
+  width: 20px;
+  background-color: rgb(78, 78, 255);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.pharmacistCard1 .number {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.pharmacistCard1 .heading {
+  font-weight: 500;
+  color: #7a7a7a;
+}

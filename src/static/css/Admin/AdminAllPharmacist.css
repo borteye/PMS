@@ -1,0 +1,355 @@
+.adminAllPharmacist {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  background-color: #e4e4e4;
+  grid-template-columns: 58px auto;
+  transition: all 0.4s ease;
+}
+.adminAllPharmacist.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  background-color: #e4e4e4;
+  grid-template-columns: 11rem auto;
+  transition: all 0.4s ease;
+}
+
+.adminAllPharmacist .allPharmacistMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.adminAllPharmacist .allPharmacist {
+  padding: 0 1.5rem;
+}
+
+.adminAllPharmacist .allPharmacist .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+}
+
+.adminAllPharmacist .allPharmacist .cardContainer {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  height: 75vh;
+}
+
+.adminAllPharmacist .allPharmacist .cardNavbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.adminAllPharmacist .allPharmacist .card_heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.adminAllPharmacist .allPharmacist .search {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.adminAllPharmacist .allPharmacist .search img {
+  width: 23px;
+}
+
+.adminAllPharmacist .allPharmacist .search input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  padding: 0.2rem;
+  width: 90%;
+  background-color: transparent;
+}
+
+.adminAllPharmacist .allPharmacist .addButton {
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #006270;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.adminAllPharmacist .allPharmacist .card {
+  margin-top: 1rem;
+
+  overflow-x: scroll;
+}
+
+.adminAllPharmacist .allPharmacist .titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  /* width: max-content; */
+  padding: 1rem 0;
+  background-color: #006270;
+  color: #ffffff;
+}
+
+.adminAllPharmacist .allPharmacist .titles > div {
+  min-width: 12rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.adminAllPharmacist .allPharmacist .datas {
+  display: flex;
+  flex-direction: column;
+}
+.adminAllPharmacist .allPharmacist .data {
+  /* width: fit-content; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 1px solid #7f7f7f;
+}
+.adminAllPharmacist .allPharmacist .data:hover {
+  background-color: #25252518;
+}
+
+.adminAllPharmacist .allPharmacist .data > div {
+  min-width: 12rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #252525;
+  padding: 0.5rem 0;
+}
+
+.adminAllPharmacist .allPharmacist .titles .number,
+.adminAllPharmacist .allPharmacist .data .number {
+  min-width: 4rem;
+}
+
+.adminAllPharmacist .allPharmacist .titles .email,
+.adminAllPharmacist .allPharmacist .data .email {
+  width: 16rem;
+}
+
+.adminAllPharmacist .allPharmacist .data .email {
+  justify-content: left;
+}
+
+.adminAllPharmacist .allPharmacist .data .name-image {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 0.7rem;
+}
+.adminAllPharmacist .allPharmacist .name-image img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.adminAllPharmacist .allPharmacist .actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.adminAllPharmacist .allPharmacist .actions img {
+  cursor: pointer;
+}
+
+.adminAllPharmacist hr {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .adminAllPharmacist {
+    grid-template-columns: auto;
+  }
+}
+
+/* ---------- RightBar - DIALOG ------------ */
+
+.adminAllPharmacist .allPharmacistMain .addPharmacistRightBar {
+  position: absolute;
+  width: 25rem;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  top: 0;
+  right: 0;
+  z-index: 1056;
+  transition: 0.3s;
+}
+.adminAllPharmacist .allPharmacistMain .hideRightBar {
+  display: none;
+}
+
+.adminAllPharmacist .addPharmacistRightBar .rightBar-Header {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 0.5rem;
+}
+.adminAllPharmacist .addPharmacistRightBar .rightBar-Header .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+}
+
+.adminAllPharmacist .addPharmacistRightBar .rightBar-body {
+  padding: 0 0.5rem;
+}
+.adminAllPharmacist .addPharmacistRightBar form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+.adminAllPharmacist .addPharmacistRightBar form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.adminAllPharmacist .addPharmacistRightBar form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+}
+
+.adminAllPharmacist .addPharmacistRightBar .addMedIcon {
+  color: #7f7f7f;
+}
+
+.adminAllPharmacist .addPharmacistRightBar form .flex {
+  border-bottom: 1px solid #006270;
+  display: flex;
+  align-items: center;
+}
+
+.adminAllPharmacist .addPharmacistRightBar .rightBar-body .title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.adminAllPharmacist .addPharmacistRightBar .buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.adminAllPharmacist .addPharmacistRightBar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.adminAllPharmacist .addPharmacistRightBar .buttons #plusIcon,
+.adminAllPharmacist .addPharmacistRightBar .buttons #closeIcon {
+  width: 1.25rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+}
+
+.adminAllPharmacist .addPharmacistRightBar #plusIcon {
+  background-color: #23b0c579;
+  color: #006270;
+}
+
+.adminAllPharmacist .addPharmacistRightBar #closeIcon {
+  background-color: rgba(207, 67, 67, 0.836);
+  color: red;
+}
+
+/* ---------- DELETE - DIALOG ------------ */
+
+.adminAllPharmacist .deleteDialog {
+  background: rgba(0, 0, 0, 0.301);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+.adminAllPharmacist .deleteDialog img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.adminAllPharmacist .deleteDialog .card {
+  background-color: white;
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.4rem 1.35rem;
+  border-radius: 20px;
+}
+
+.adminAllPharmacist .deleteDialog .text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  width: 12em;
+  margin: 0 auto;
+}
+
+.adminAllPharmacist .deleteDialog .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adminAllPharmacist .deleteDialog .yesBtn,
+.adminAllPharmacist .deleteDialog .noBtn {
+  font-size: 1.125rem;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.adminAllPharmacist .deleteDialog .yesBtn {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+.adminAllPharmacist .deleteDialog .noBtn {
+  border: 1px solid rgb(167, 166, 166);
+}
+
+.adminAllPharmacist .hideDeleteDialog {
+  display: none;
+}

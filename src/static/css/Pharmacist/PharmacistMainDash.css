@@ -1,0 +1,23 @@
+.pharmacistMainDash {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 1rem 0.5rem;
+}
+
+.pharmacistMainDash .section_two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  padding: 1rem 0rem;
+}
+
+.pharmacistMainDash .section_three {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.pharmacistMainDash .section_four {
+  margin-top: 2rem;
+}

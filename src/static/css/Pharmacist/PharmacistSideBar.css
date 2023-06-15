@@ -1,0 +1,70 @@
+.pharmacistSideBar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem 0;
+  transition: all 300ms ease;
+  background-color: #252525;
+  color: white;
+}
+
+.pharmacistSideBar .logo {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0 1rem;
+}
+.pharmacistSideBar .menu img {
+  width: 28px;
+}
+
+.pharmacistSideBar ul {
+  border: 1px solid red;
+  margin: 0;
+  padding: 0;
+}
+.pharmacistSideBar .menu {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pharmacistSideBar .menuItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 2.5rem;
+  position: relative;
+  transition: all 300ms ease;
+  margin-left: 14px;
+  border-radius: 5px;
+}
+
+.pharmacistSideBar .menuItem:hover {
+  cursor: pointer;
+}
+
+.pharmacistSideBar .active {
+  background-color: antiquewhite;
+  margin-left: 0;
+}
+
+.pharmacistSideBar .active::before {
+  content: "";
+  width: 8px;
+  height: 100%;
+  background-color: rgb(255, 190, 105);
+  margin-right: calc(1rem - 8px);
+}
+
+@media screen and (max-width: 1024px) {
+  .pharmacistSideBar .heading {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pharmacistSideBar {
+    display: none;
+  }
+}

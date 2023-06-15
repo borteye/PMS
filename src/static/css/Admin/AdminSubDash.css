@@ -1,0 +1,30 @@
+.adminSubDash {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.adminSubDash .scroll-Y {
+  height: 88vh;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 768px) {
+  .adminSubDash .scroll-Y {
+    padding: 1rem 0.5rem;
+    display: flex;
+    height: 215vh;
+    margin-bottom: 1rem;
+    overflow-y: hidden;
+    flex-direction: column;
+  }
+}
+
+/* @media screen and (max-width: 700px) {
+  .adminSubDash .scroll-Y {
+    height: 185%;
+    margin-bottom: 1rem;
+    border: 1px solid blue;
+    overflow-y: visible;
+  }
+} */

@@ -1,0 +1,73 @@
+.adminDashboard {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 58px auto;
+  transition: all 0.4s ease;
+  background-color: #e4e4e4;
+}
+.adminDashboard.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 11rem auto;
+  transition: all 0.4s ease;
+  background-color: #e4e4e4;
+}
+
+.adminDashboard .dashboardContainer {
+  display: grid;
+  grid-template-columns: auto 22rem;
+}
+
+@media screen and (max-width: 1164px) {
+  .adminDashboard {
+    grid-template-columns: 58px auto;
+  }
+  .adminDashboard.open {
+    grid-template-columns: 10rem auto;
+    border: 1px solid red;
+  }
+
+  .adminDashboard .dashboardContainer {
+    display: grid;
+    grid-template-columns: auto 20rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .adminDashboard {
+    grid-template-columns: 58px auto;
+  }
+  .adminDashboard.open {
+    grid-template-columns: 10rem auto;
+  }
+}
+
+@media screen and (max-width: 878px) {
+  .adminDashboard .dashboardContainer {
+    display: grid;
+    grid-template-columns: auto 17rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .adminDashboard {
+    grid-template-columns: auto;
+  }
+  .adminDashboard .dashboardContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.2fr 1.2fr;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+  .adminDashboard.open {
+    grid-template-columns: auto;
+  }
+}

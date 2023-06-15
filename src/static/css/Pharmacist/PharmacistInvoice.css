@@ -1,0 +1,130 @@
+.pharmacistInvoice {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 11rem auto;
+  background-color: rgb(178, 240, 178);
+}
+
+.pharmacistInvoice .invoiceMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.pharmacistInvoice .invoice {
+  padding: 0 1.5rem;
+}
+
+.pharmacistInvoice .invoice .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+}
+
+.pharmacistInvoice .invoice .cardContainer {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pharmacistInvoice .invoice .cardNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.pharmacistInvoice .invoice .card {
+  margin-top: 0.5rem;
+}
+
+.pharmacistInvoice .invoice .information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pharmacistInvoice .invoice .reciever {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pharmacistInvoice .invoice .reciever_heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.pharmacistInvoice .invoice .reciever_name {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.pharmacistInvoice .invoice .card_table {
+  margin-top: 2rem;
+  overflow-x: scroll;
+}
+
+.pharmacistInvoice .invoice .titles {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 500;
+  padding: 1rem;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background-color: #252525;
+  color: white;
+  font-size: small;
+}
+
+.pharmacistInvoice .invoice .titles > div {
+  min-width: 6rem;
+}
+
+.pharmacistInvoice .invoice .datas .data {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+.pharmacistInvoice .invoice .datas .data > div {
+  min-width: 6rem;
+}
+
+.pharmacistInvoice .invoice .buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pharmacistInvoice .invoice .totalCost {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+}
+.pharmacistInvoice .invoice .totalCost > div {
+  min-width: 6rem;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printing_container,
+  .printing_container * {
+    visibility: visible;
+  }
+  .printing_container {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

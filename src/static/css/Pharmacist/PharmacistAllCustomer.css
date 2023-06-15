@@ -1,0 +1,351 @@
+.pharmacistAllCustomers {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 58px auto;
+  transition: all 0.4s ease;
+  background-color: rgb(178, 240, 178);
+}
+.pharmacistAllCustomers.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 11rem auto;
+  transition: all 0.4s ease;
+  background-color: rgb(178, 240, 178);
+}
+
+.pharmacistAllCustomers .allCustomersMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.pharmacistAllCustomers .allCustomers {
+  padding: 0 1.5rem;
+}
+
+.pharmacistAllCustomers .allCustomers .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+}
+
+.pharmacistAllCustomers .allCustomers .cardContainer {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  height: 75vh;
+}
+
+.pharmacistAllCustomers .allCustomers .cardNavbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.pharmacistAllCustomers .allCustomers .card_heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.pharmacistAllCustomers .allCustomers .search {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.pharmacistAllCustomers .allCustomers .search img {
+  width: 23px;
+}
+
+.pharmacistAllCustomers .allCustomers .search input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  padding: 0.2rem;
+  width: 90%;
+  background-color: transparent;
+}
+
+.pharmacistAllCustomers .allCustomers .addButton {
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #252525;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pharmacistAllCustomers .allCustomers .card {
+  margin-top: 1rem;
+  overflow-x: scroll;
+}
+
+.pharmacistAllCustomers .allCustomers .titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  background-color: #252525;
+  color: #ffffff;
+}
+
+.pharmacistAllCustomers .allCustomers .titles > div {
+  min-width: 12rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.pharmacistAllCustomers .allCustomers .datas {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.5rem; */
+}
+
+.pharmacistAllCustomers .allCustomers .data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 1px solid #7f7f7f;
+}
+.pharmacistAllCustomers .allCustomers .data > div {
+  min-width: 12rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #252525;
+  padding: 0.5rem 0;
+}
+
+.pharmacistAllCustomers .allCustomers .data:hover {
+  background-color: #25252518;
+}
+
+.pharmacistAllCustomers .allCustomers .titles .number,
+.pharmacistAllCustomers .allCustomers .data .number {
+  min-width: 4rem;
+}
+
+.pharmacistAllCustomers .allCustomers .data .name-image {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 0.7rem;
+}
+.pharmacistAllCustomers .allCustomers .name-image img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pharmacistAllCustomers .allCustomers .titles .email,
+.pharmacistAllCustomers .allCustomers .data .email {
+  width: 16rem;
+}
+
+.pharmacistAllCustomers .allCustomers .data .email {
+  justify-content: left;
+}
+
+.pharmacistAllCustomers .allCustomers .actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pharmacistAllCustomers .allCustomers .actions img {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .pharmacistAllCustomers {
+    grid-template-columns: auto;
+  }
+}
+
+/* ---------- RightBar - DIALOG ------------ */
+
+.pharmacistAllCustomers .allCustomersMain .addCustomerRightBar {
+  position: absolute;
+  width: 25rem;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  top: 0;
+  right: 0;
+  z-index: 1056;
+  transition: 0.3s;
+}
+.pharmacistAllCustomers .allCustomersMain .hideRightBar {
+  display: none;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar .rightBar-Header {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 0.5rem;
+}
+.pharmacistAllCustomers .addCustomerRightBar .rightBar-Header .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar .rightBar-body {
+  padding: 0 0.5rem;
+}
+.pharmacistAllCustomers .addCustomerRightBar form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+.pharmacistAllCustomers .addCustomerRightBar form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.pharmacistAllCustomers .addCustomerRightBar form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar .addMedIcon {
+  color: #7f7f7f;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar form .flex {
+  border-bottom: 1px solid #006270;
+  display: flex;
+  align-items: center;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar .rightBar-body .title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar .buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.pharmacistAllCustomers .addCustomerRightBar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar #plusIcon,
+.pharmacistAllCustomers .addCustomerRightBar #closeIcon {
+  width: 1.25rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar #plusIcon {
+  background-color: #23b0c579;
+  color: #006270;
+}
+
+.pharmacistAllCustomers .addCustomerRightBar #closeIcon {
+  background-color: rgba(207, 67, 67, 0.836);
+  color: red;
+}
+
+/* ---------- DELETE - DIALOG ------------ */
+
+.pharmacistAllCustomers .deleteDialog {
+  background: rgba(0, 0, 0, 0.301);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+.pharmacistAllCustomers .deleteDialog img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
+}
+
+.pharmacistAllCustomers .deleteDialog .card {
+  background-color: rgb(178, 240, 178);
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.4rem 1.35rem;
+  border-radius: 20px;
+}
+
+.pharmacistAllCustomers .deleteDialog .text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  width: 12em;
+  margin: 0 auto;
+}
+
+.pharmacistAllCustomers .deleteDialog .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pharmacistAllCustomers .deleteDialog .yesBtn,
+.pharmacistAllCustomers .deleteDialog .noBtn {
+  font-size: 1.125rem;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pharmacistAllCustomers .deleteDialog .yesBtn {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+.pharmacistAllCustomers .deleteDialog .noBtn {
+  border: 1px solid rgb(167, 166, 166);
+}
+
+.pharmacistAllCustomers .hideDeleteDialog {
+  display: none;
+}

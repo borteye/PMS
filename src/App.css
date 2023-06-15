@@ -1,0 +1,128 @@
+* {
+  list-style-type: none;
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+#cartIcon,
+#editIcon,
+#trashIcon,
+#sendIcon,
+#arrowDownIcon {
+  width: 0.95rem;
+}
+
+#cartIcon,
+#editIcon,
+#trashIcon,
+#searchIcon,
+#sendIcon,
+#bellIcon,
+#arrowDownIcon,
+#sBagIcon,
+#settingsIcon {
+  color: #7f7f7f;
+  cursor: pointer;
+}
+
+#cartIcon:hover {
+  color: #006270;
+  width: 1.25rem;
+}
+
+#editIcon:hover,
+#sendIcon:hover {
+  color: blue;
+  width: 1.25rem;
+}
+
+#trashIcon:hover {
+  color: red;
+  width: 1.25rem;
+}
+
+#settingsIcon:hover {
+  color: blue;
+}
+
+#settingsIcon:active {
+  width: 1.25rem;
+}
+
+.pagination .Previous,
+.pagination .Next {
+  display: block;
+}
+
+.pagination .Previous_hide,
+.pagination .Next_hide {
+  display: none;
+}
+
+.pagination .pagination_btns {
+  width: 100%;
+  padding: 0.5rem 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.pagination .pagination_btns a {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #006270;
+  color: #006270;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  cursor: pointer;
+}
+
+.pagination .pagination_btns a:hover {
+  color: white;
+  background-color: #006270;
+}
+
+.pagination .paginationActive a {
+  color: white;
+  background-color: #006270;
+}
+
+/* ------ Pharmacist ------ */
+
+.pagination .pagination_btns.pharmacist {
+  width: 100%;
+  padding: 0.5rem 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination .pagination_btns.pharmacist a {
+  padding: 0.5rem 0.9rem;
+  margin: 5px;
+  border-radius: 50%;
+  border: 1px solid #252525;
+  color: #252525;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  cursor: pointer;
+}
+
+.pagination .pagination_btns.pharmacist a:hover {
+  color: white;
+  background-color: #252525;
+}
+
+.pagination .paginationActive.pharmacist a {
+  color: white;
+  background-color: #252525;
+}

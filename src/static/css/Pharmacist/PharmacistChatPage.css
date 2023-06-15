@@ -1,0 +1,156 @@
+.pharmacistChatPage {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 11rem auto;
+  background-color: rgb(178, 240, 178);
+}
+
+.pharmacistChatPage .chatPageMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.pharmacistChatPage .chatContainer {
+  padding: 1.5rem;
+}
+
+.pharmacistChatPage .chatCard {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 14rem auto;
+}
+
+.pharmacistChatPage .chatCard .sidebar {
+  border-right: 1px solid #252525;
+}
+
+.pharmacistChatPage .chatCard .sidebar .heading {
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 0.65rem 0;
+}
+
+.pharmacistChatPage .chatCard .chats {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.pharmacistChatPage .chatCard .chat {
+  display: flex;
+  padding: 0.4rem 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: small;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 1px solid #e4e4e4;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+  transition: all 0.3s ease;
+}
+.pharmacistChatPage .chatCard .chat:hover {
+  background-color: #252525;
+  color: white;
+  transition: all 0.3s ease;
+}
+.pharmacistChatPage .chatCard .chat img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pharmacistChatPage .mainChat .heading {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: right;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 0.65rem 1rem;
+  font-style: italic;
+}
+
+.pharmacistChatPage .mainChat .chatBox {
+  height: calc(80vh - (46.78px + 37px));
+  overflow-y: scroll;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+.pharmacistChatPage .mainChat .received {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.pharmacistChatPage .mainChat .received .message {
+  background-color: #252525;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  max-width: 40%;
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px 12px 12px 0;
+}
+.pharmacistChatPage .mainChat .sent {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  gap: 0.75rem;
+}
+
+.pharmacistChatPage .mainChat .sent .message {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: #252525;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px 12px 0 12px;
+}
+
+.pharmacistChatPage .sendMessageBox {
+  background-color: #252525;
+}
+
+.pharmacistChatPage .sendMessageBox form {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 0.25rem 1.35rem;
+}
+
+.pharmacistChatPage .sendMessageBox input {
+  padding: 0.25rem 1rem;
+  font-size: 1.125rem;
+
+  font-weight: 200;
+  width: 50%;
+  border: none;
+  outline: none;
+  background-color: #e4e4e4;
+  border-radius: 10rem;
+  color: #252525;
+}
+
+.pharmacistChatPage .sendMessageBox button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

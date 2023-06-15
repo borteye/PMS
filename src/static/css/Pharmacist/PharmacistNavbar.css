@@ -1,0 +1,104 @@
+.pharmacistNavbar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  background-color: white;
+  border-bottom: 1px solid #e4e4e4;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.pharmacistNavbar .content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.pharmacistNavbar .sec_one > div {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.pharmacistNavbar .sec_one small {
+  font-weight: 500;
+  letter-spacing: 0.25rem;
+  word-spacing: 0.35rem;
+}
+
+.pharmacistNavbar .sec_two {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.pharmacistNavbar .navIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pharmacistNavbar .pharmacist_profile {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pharmacistNavbar .pharmacist_profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e4e4e4;
+  padding: 0.2rem;
+}
+
+.pharmacistNavbar .pharmacist_profile .name {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.pharmacistNavbar .sec_two .notification {
+  display: flex;
+  align-items: center;
+}
+
+.pharmacistNavbar .sec_two .dropNoitification {
+  position: absolute;
+  border: 1px solid red;
+}
+
+.pharmacistNavbar .sec_two .hideDropNotification {
+  display: none;
+}
+
+.pharmacistNavbar .sec_two .cartContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid red;
+}
+
+.pharmacistNavbar .sec_two .hideCartContainer {
+  display: none;
+}
+
+.pharmacistNavbar .pharmacist_profile .profileDropDown {
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
+  margin-top: 5rem;
+  width: 15rem;
+  border: 1px solid red;
+}
+
+.pharmacistNavbar .pharmacist_profile .hiddenProfileDropDown {
+  display: none;
+}
+
+/* @media screen and (max-width: 700px) {
+    .pharmacistSubDash .pharmacistNavbar {
+      display: none;
+    }
+  } */

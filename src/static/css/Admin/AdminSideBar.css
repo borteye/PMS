@@ -1,0 +1,175 @@
+.adminSideBar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem 14px;
+  transition: all 0.5s ease;
+  background-color: #006270;
+  width: 58px;
+}
+
+.adminSideBar.open {
+  width: 100%;
+}
+
+.adminSideBar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.adminSideBar .logo-name {
+  font-size: 22px;
+  font-weight: 600;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+.adminSideBar.open .logo-name {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.adminSideBar .menuBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 23px;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  z-index: 12;
+}
+
+.adminSideBar .menuBtn.open {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 23px;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.adminSideBar #sideBar-Icon {
+  height: 60px;
+  line-height: 60px;
+  min-width: 30px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.adminSideBar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.adminSideBar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.adminSideBar li a {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  transition: all 0.5s ease;
+  z-index: 12;
+}
+
+.adminSideBar li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  background-color: #ffffff;
+  color: #006270;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: left;
+  z-index: -2;
+}
+.adminSideBar li a:hover::after {
+  transform: scaleX(1);
+  color: black;
+}
+.adminSideBar li a .link-name {
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  font-size: 15px;
+}
+
+.adminSideBar.open li a .link-name {
+  font-size: 17px;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+.adminSideBar li a:hover .link-name,
+.adminSideBar li a:hover #sideBar-Icon {
+  transition: all 0.5s ease;
+  color: #006270;
+}
+
+.adminSideBar li #sideBar-Icon {
+  height: 28px;
+  line-height: 28px;
+  border-radius: 5px;
+}
+
+.adminSideBar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  font-weight: 600;
+  color: #006270;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 6px 14px;
+  font-size: 15px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.adminSideBar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.adminSideBar.open li:hover .tooltip {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .adminSideBar .heading {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .adminSideBar {
+    display: none;
+  }
+}

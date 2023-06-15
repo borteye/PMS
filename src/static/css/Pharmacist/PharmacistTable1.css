@@ -1,0 +1,61 @@
+.pharmacistTable1 {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-right: 2rem;
+}
+
+.pharmacistTable1 .tableContainer {
+  background-color: white;
+  margin-right: 1rem;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.pharmacistTable1 .heading {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.pharmacistTable1 .table {
+  margin: 1rem 0;
+  overflow-x: scroll;
+  height: 40vh;
+}
+
+.pharmacistTable1 .titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.pharmacistTable1 .columnHead {
+  border: 1px solid red;
+  min-width: 9.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #616161;
+}
+.pharmacistTable1 .data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.pharmacistTable1 .data > div {
+  border: 1px solid red;
+  min-width: 9.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}

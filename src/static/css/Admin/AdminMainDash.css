@@ -1,0 +1,35 @@
+.adminMainDash {
+  padding: 1rem 0.5rem;
+  display: flex;
+  height: 100vh;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+
+.adminMainDash .displayFlex {
+  display: flex;
+  align-items: center;
+  gap: 0.78rem;
+}
+
+.adminMainDash .displayFlex img {
+  width: 25px;
+  border-radius: 2px;
+  display: none;
+}
+
+.adminMainDash .heading {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .adminMainDash {
+    padding: 1rem 0.5rem;
+    display: flex;
+    height: 210vh;
+    margin-bottom: 1rem;
+    overflow-y: hidden;
+    flex-direction: column;
+  }
+}
