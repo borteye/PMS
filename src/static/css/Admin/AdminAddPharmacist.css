@@ -104,25 +104,24 @@
   cursor: pointer;
 }
 
-.adminAddPharmacist .addPharmacist #plusIcon,
-.adminAddPharmacist .addPharmacist #closeIcon {
-  width: 1.25rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 50%;
-}
-
-.adminAddPharmacist .addPharmacist #plusIcon {
+.adminAddPharmacist p .saveBtn {
   background-color: #23b0c579;
   color: #006270;
+  padding: 0.25rem 0.35rem;
+  border-radius: 15px;
 }
-
-.adminAddPharmacist .addPharmacist #closeIcon {
+.adminAddPharmacist p .closeBtn {
   background-color: rgba(207, 67, 67, 0.836);
   color: red;
+  padding: 0.25rem 0.35rem;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 768px) {
   .adminAddPharmacist {
+    grid-template-columns: auto;
+  }
+  .adminAddPharmacist.open {
     grid-template-columns: auto;
   }
 }

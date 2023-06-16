@@ -89,9 +89,11 @@
 
 .adminInvoiceList .invoiceList .titles {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
   width: fit-content;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
   padding: 1rem 0;
   background-color: #006270;
   color: #ffffff;
@@ -111,10 +113,11 @@
   flex-direction: column;
 }
 .adminInvoiceList .invoiceList .data {
-  width: fit-content;
   display: flex;
+  margin: 0 auto;
+  width: fit-content;
+  justify-content: space-between;
   align-items: center;
-  margin: 0;
   padding: 0;
   gap: 0.5rem;
   font-weight: 500;
@@ -138,18 +141,6 @@
   font-weight: 500;
   color: #252525;
   padding: 0.5rem 0;
-}
-
-.adminInvoiceList .invoiceList .data .productName {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 1rem;
-}
-.adminInvoiceList .invoiceList .data .productName img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
 }
 
 .adminInvoiceList .invoiceList .titles .invoiceId,
@@ -240,6 +231,9 @@
 
 @media screen and (max-width: 768px) {
   .adminInvoiceList {
+    grid-template-columns: auto;
+  }
+  .adminInvoiceList.open {
     grid-template-columns: auto;
   }
 }

@@ -4,7 +4,6 @@
   margin: 0 auto;
   height: 100vh;
   overflow: hidden;
-
   background-color: #e4e4e4;
   grid-template-columns: 58px auto;
   transition: all 0.4s ease;
@@ -100,30 +99,29 @@
 }
 
 .adminAddMedicine .addMedicine button {
-  background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.adminAddMedicine .addMedicine #plusIcon,
-.adminAddMedicine .addMedicine #closeIcon {
-  width: 1.25rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 50%;
-}
-
-.adminAddMedicine .addMedicine #plusIcon {
+.adminAddMedicine p .saveBtn {
   background-color: #23b0c579;
   color: #006270;
+  padding: 0.25rem 0.35rem;
+  border-radius: 15px;
 }
-
-.adminAddMedicine .addMedicine #closeIcon {
+.adminAddMedicine .closeBtn {
   background-color: rgba(207, 67, 67, 0.836);
   color: red;
+  padding: 0.25rem 0.35rem;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 768px) {
   .adminAddMedicine {
+    grid-template-columns: auto;
+  }
+
+  .adminAddMedicine.open {
     grid-template-columns: auto;
   }
 }

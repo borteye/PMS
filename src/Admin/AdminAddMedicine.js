@@ -64,12 +64,8 @@ const AdminAddMedicine = () => {
                   <Archive className="addMedIcon" />
                 </div>
                 <p>
-                  <button className="saveBtn">
-                    <Plus id="plusIcon" />
-                  </button>
-                  <button className="closeBtn">
-                    <X id="closeIcon" />
-                  </button>
+                  <button className="saveBtn">Save</button>
+                  <button className="closeBtn">Cancel</button>
                 </p>
               </form>
             </div>

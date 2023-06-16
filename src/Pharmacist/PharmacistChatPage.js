@@ -5,7 +5,10 @@ import { Send } from "feather-icons-react";
 import profile from "../static/assets/profile.jpg";
 import PharmacistSideBar from "../Components/Pharmacist/PharmacistSideBar";
 import PharmacistNavbar from "../Components/Pharmacist/PharmacistNavbar";
-
+import uuid from "react-uuid";
+import firebase from "firebase/compat/app";
+import db from "../FConfig";
+import { useCollection } from "react-firebase-hooks/firestore";
 const PharmacistChatPage = () => {
   return (
     <div className="pharmacistChatPage">

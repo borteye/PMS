@@ -185,6 +185,9 @@
   .adminMedicineList {
     grid-template-columns: auto;
   }
+  .adminMedicineList.open {
+    grid-template-columns: auto;
+  }
 }
 
 .adminMedicineList .medicineListMain .addMedicineRightBar {
@@ -256,6 +259,11 @@
   position: absolute;
   top: 0;
   right: 0;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .adminMedicineList .addMedicineRightBar button {
   background-color: transparent;
@@ -263,21 +271,17 @@
   cursor: pointer;
 }
 
-.adminMedicineList .addMedicineRightBar #plusIcon,
-.adminMedicineList .addMedicineRightBar #closeIcon {
-  width: 1.25rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 50%;
-}
-
-.adminMedicineList .addMedicineRightBar #plusIcon {
-  background-color: #23b0c579;
+.adminMedicineList .addMedicineRightBar .plusIcon {
   color: #006270;
+  background-color: #23b0c579;
+  border-radius: 50%;
+  padding: 0.25rem;
 }
-
-.adminMedicineList .addMedicineRightBar #closeIcon {
-  background-color: rgba(207, 67, 67, 0.836);
+.adminMedicineList .addMedicineRightBar .closeIcon {
   color: red;
+  background-color: rgba(207, 67, 67, 0.836);
+  border-radius: 50%;
+  padding: 0.25rem;
 }
 
 /* ---------- DELETE - DIALOG ------------ */

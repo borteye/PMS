@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../static/css/Admin/AdminInvoiceList.css";
 import { useSelector } from "react-redux";
 import { SelectAdActiveToggle } from "../features/toggleSlice";
-import { Search, Send, Trash2 } from "feather-icons-react";
+import { Search, Eye, Trash2 } from "feather-icons-react";
 import { InvoiceList } from "../Data/AdminData";
 import ReactPaginate from "react-paginate";
 import trashCan from "../static/assets/trashCan.gif";
@@ -18,15 +18,15 @@ const AdminInvoiceList = () => {
 
   const adminMenuToggle = useSelector(SelectAdActiveToggle);
 
-  const productsPerPage = 5;
-  const pagesVisited = pageNumber * productsPerPage;
-  const pageCount = Math.ceil(data.length / productsPerPage);
+  const invoicePerPage = 6;
+  const pagesVisited = pageNumber * invoicePerPage;
+  const pageCount = Math.ceil(data.length / invoicePerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
 
-  const displayProducts = data
+  const displayInvoiceList = data
     .filter((val) => {
       if (search == "") {
         return val;
@@ -37,33 +37,29 @@ const AdminInvoiceList = () => {
         return val;
       }
     })
-    .slice(pagesVisited, pagesVisited + productsPerPage)
+    .slice(pagesVisited, pagesVisited + invoicePerPage)
     .map((item, index) => {
       return (
         <div className="data" key={index}>
           <div className="invoiceId">{item.invoiceId}</div>
-          <div className="productName">
-            <img src={item.image} alt="" />
-            <div>{item.name}</div>
-          </div>
+          <div>Gabriel</div>
           <div className="orderId">{item.orderId}</div>
           <div>{item.invoiceGeneratedDate}</div>
           <div>
             <span className="invoice_status">{item.status}</span>
           </div>
           <div>{item.price}</div>
-          <div>{item.quantity}</div>
 
           <div className="actions">
-            <Send id="sendIcon" />
+            <Eye id="sendIcon" />
             <Trash2 id="trashIcon" onClick={() => setDeleteDialog(true)} />
           </div>
         </div>
       );
     });
 
-  function PSProductWidget() {
-    return <>{displayProducts}</>;
+  function InvoiceWidget() {
+    return <>{displayInvoiceList}</>;
   }
 
   return (
@@ -93,29 +89,27 @@ const AdminInvoiceList = () => {
                   <small>Invoice Id</small>
                 </div>
                 <div>
-                  <small>Product Name</small>
+                  <small>Bill To</small>
                 </div>
                 <div>
                   <small>Order #Id</small>
                 </div>
                 <div>
-                  <small>Invoice Generated Date</small>
+                  <small>Created</small>
                 </div>
                 <div>
                   <small>Status</small>
                 </div>
                 <div>
-                  <small>Price</small>
+                  <small>Total</small>
                 </div>
-                <div>
-                  <small>Quantity</small>
-                </div>
+
                 <div>
                   <small>Action</small>
                 </div>
               </div>
               <div className="datas">
-                <PSProductWidget />
+                <InvoiceWidget />
               </div>
             </div>
             <div className="pagination">

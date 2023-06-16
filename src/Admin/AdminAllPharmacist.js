@@ -31,15 +31,15 @@ const AdminAllPharmacist = () => {
 
   const adminMenuToggle = useSelector(SelectAdActiveToggle);
 
-  const productsPerPage = 5;
-  const pagesVisited = pageNumber * productsPerPage;
-  const pageCount = Math.ceil(data.length / productsPerPage);
+  const pharmacistPerPage = 4;
+  const pagesVisited = pageNumber * pharmacistPerPage;
+  const pageCount = Math.ceil(data.length / pharmacistPerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
 
-  const displayProducts = data
+  const displayPharmacist = data
     .filter((val) => {
       if (search == "") {
         return val;
@@ -47,7 +47,7 @@ const AdminAllPharmacist = () => {
         return val;
       }
     })
-    .slice(pagesVisited, pagesVisited + productsPerPage)
+    .slice(pagesVisited, pagesVisited + pharmacistPerPage)
     .map((item, index) => {
       return (
         <div className="data" key={index}>
@@ -68,8 +68,8 @@ const AdminAllPharmacist = () => {
       );
     });
 
-  function PSProductWidget() {
-    return <>{displayProducts}</>;
+  function PharmacistWidget() {
+    return <>{displayPharmacist}</>;
   }
 
   return (
@@ -105,27 +105,27 @@ const AdminAllPharmacist = () => {
               <div className="card">
                 <div className="titles">
                   <div className="number">
-                    <div>No</div>
+                    <small>No</small>
                   </div>
                   <div>
-                    <div>Pharmacist Name</div>
+                    <small>Pharmacist Name</small>
                   </div>
                   <div>
-                    <div>Phone Number</div>
+                    <small>Phone Number</small>
                   </div>
                   <div className="email">
-                    <div>Email</div>
+                    <small>Email</small>
                   </div>
                   <div>
-                    <div>Joining Date</div>
+                    <small>Joining Date</small>
                   </div>
 
                   <div>
-                    <div>Actions</div>
+                    <small>Actions</small>
                   </div>
                 </div>
                 <div className="datas">
-                  <PSProductWidget />
+                  <PharmacistWidget />
                 </div>
               </div>
               <div className="pagination">
@@ -190,11 +190,11 @@ const AdminAllPharmacist = () => {
                 <p>
                   <div className="buttons">
                     <button className="saveBtn">
-                      <Plus id="plusIcon" />
+                      <Plus className="plusIcon" />
                     </button>
                     <button className="closeBtn">
                       <X
-                        id="closeIcon"
+                        className="closeIcon"
                         onClick={() => setShowRightBar(false)}
                       />
                     </button>

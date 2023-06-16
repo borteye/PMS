@@ -10,10 +10,12 @@ import {
   Edit,
   Trash2,
   Calendar,
+  Truck,
+  Archive,
+  DollarSign,
   Hash,
-  User,
-  Phone,
-  Mail,
+  FilePlus,
+  List,
   X,
 } from "feather-icons-react";
 import { MedicineList } from "../Data/AdminData";
@@ -30,7 +32,7 @@ const AdminMedicineList = () => {
 
   const adminMenuToggle = useSelector(SelectAdActiveToggle);
 
-  const medicinePerPage = 6;
+  const medicinePerPage = 4;
   const pagesVisited = pageNumber * medicinePerPage;
   const pageCount = Math.ceil(data.length / medicinePerPage);
 
@@ -151,7 +153,7 @@ const AdminMedicineList = () => {
         </div>
         <div className={showRightBar ? "addMedicineRightBar" : "hideRightBar"}>
           <div className="rightBar-Header">
-            <div className="title">Add Pharmacist</div>
+            <div className="title">Add Medicine</div>
             <div></div>
           </div>
           <div className="rightBar-body">
@@ -167,21 +169,21 @@ const AdminMedicineList = () => {
                 <div className="title">Medicine Name</div>
                 <div className="flex">
                   <input type="text" placeholder="Medicine Name*" />
-                  <User className="addMedIcon" />
+                  <FilePlus className="addMedIcon" />
                 </div>
               </div>
               <div className="medicine-category">
                 <div className="title">Medicine Category</div>
                 <div className="flex">
                   <input type="text" placeholder="Medicine Category*" />
-                  <Phone className="addMedIcon" />
+                  <List className="addMedIcon" />
                 </div>
               </div>
               <div className="company-name">
                 <div className="title">Company Name</div>
                 <div className="flex">
                   <input type="text" placeholder="Company Name*" />
-                  <Mail className="addMedIcon" />
+                  <Truck className="addMedIcon" />
                 </div>
               </div>
               <div className="purchaseDate">
@@ -195,7 +197,7 @@ const AdminMedicineList = () => {
                 <div className="title">Price</div>
                 <div className="flex">
                   <input type="text" placeholder="Price*" />
-                  <Calendar className="addMedIcon" />
+                  <DollarSign className="addMedIcon" />
                 </div>
               </div>
               <div className="expiryDate">
@@ -209,16 +211,19 @@ const AdminMedicineList = () => {
                 <div className="title">Stock</div>
                 <div className="flex">
                   <input type="text" placeholder="Stock*" />
-                  <Calendar className="addMedIcon" />
+                  <Archive className="addMedIcon" />
                 </div>
               </div>
               <p>
                 <div className="buttons">
                   <button className="saveBtn">
-                    <Plus id="plusIcon" />
+                    <Plus className="plusIcon" />
                   </button>
                   <button className="closeBtn">
-                    <X id="closeIcon" onClick={() => setShowRightBar(false)} />
+                    <X
+                      className="closeIcon"
+                      onClick={() => setShowRightBar(false)}
+                    />
                   </button>
                 </div>
               </p>
