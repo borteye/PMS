@@ -14,7 +14,7 @@
   margin: 0 auto;
   height: 100vh;
   overflow: hidden;
-  grid-template-columns: 11rem auto;
+  grid-template-columns: 12rem auto;
   transition: all 0.4s ease;
   background-color: #e4e4e4;
 }
@@ -236,4 +236,109 @@
   .adminInvoiceList.open {
     grid-template-columns: auto;
   }
+}
+
+/* ----- View - Invoice ----- */
+.adminInvoiceList .viewInvoice {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.301);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* width: 100%;
+  height: 100vh; */
+  display: flex;
+  align-items: center;
+}
+
+.adminInvoiceList .viewInvoice.close {
+  display: none;
+}
+
+.adminInvoiceList .viewInvoice .card {
+  margin: 0 auto;
+  width: 60%;
+  padding: 2rem;
+  margin-top: -6rem;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.adminInvoiceList .viewInvoice .information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adminInvoiceList .viewInvoice .reciever {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.adminInvoiceList .viewInvoice .reciever_heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.adminInvoiceList .viewInvoice .reciever_name {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.adminInvoiceList .viewInvoice .card_table {
+  margin-top: 2rem;
+  overflow-x: scroll;
+}
+
+.adminInvoiceList .viewInvoice .titles {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 500;
+  padding: 1rem;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background-color: #006270;
+  color: white;
+  font-size: small;
+}
+
+.adminInvoiceList .viewInvoice .titles > div {
+  min-width: 6rem;
+}
+
+.adminInvoiceList .viewInvoice .datas .data {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #7f7f7f;
+}
+.adminInvoiceList .viewInvoice .datas .data > div {
+  min-width: 6rem;
+}
+
+.adminInvoiceList .viewInvoice .buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.adminInvoiceList .viewInvoice .totalCost {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.adminInvoiceList .viewInvoice .totalCost > div {
+  min-width: 6rem;
+}
+
+.adminInvoiceList .viewInvoice .closeIcon {
+  position: relative;
+  top: 0;
+  right: 0;
 }

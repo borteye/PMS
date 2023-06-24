@@ -4,7 +4,16 @@
   margin: 0 auto;
   height: 100vh;
   overflow: hidden;
-  grid-template-columns: 11rem auto;
+  grid-template-columns: 58px auto;
+  background-color: rgb(178, 240, 178);
+}
+.pharmacistInvoice.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 12rem auto;
   background-color: rgb(178, 240, 178);
 }
 

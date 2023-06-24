@@ -170,21 +170,21 @@ const PharmacistAllCustomer = () => {
                 <div className="title">Date of Birth</div>
                 <div className="flex">
                   <input type="text" placeholder="DOB*" />
-                  <Phone className="addMedIcon" />
+                  <Calendar className="addMedIcon" />
                 </div>
               </div>
               <div className="mobile">
                 <div className="title">Mobile</div>
                 <div className="flex">
                   <input type="text" placeholder="Mobile*" />
-                  <Mail className="addMedIcon" />
+                  <Phone className="addMedIcon" />
                 </div>
               </div>
               <div className="email">
                 <div className="title">Email</div>
                 <div className="flex">
                   <input type="text" placeholder="Email*" />
-                  <Calendar className="addMedIcon" />
+                  <Mail className="addMedIcon" />
                 </div>
               </div>
               <div className="joiningDate">
@@ -197,10 +197,13 @@ const PharmacistAllCustomer = () => {
               <p>
                 <div className="buttons">
                   <button className="saveBtn">
-                    <Plus id="plusIcon" />
+                    <Plus className="plusIcon" />
                   </button>
                   <button className="closeBtn">
-                    <X id="closeIcon" onClick={() => setShowRightBar(false)} />
+                    <X
+                      className="closeIcon"
+                      onClick={() => setShowRightBar(false)}
+                    />
                   </button>
                 </div>
               </p>

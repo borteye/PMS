@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "../../static/css/Admin/AdminNavbar.css";
+import { useNavigate } from "react-router-dom";
 import { Bell, ChevronDown, ShoppingBag, Settings } from "feather-icons-react";
 import profile from "../../static/assets/profile.jpg";
 
 const AdminNavbar = () => {
-  const [showProfile, setShowProfile] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
-  const [showCart, setShowCart] = useState(false);
+
+  const navigate = useNavigate();
+
   return (
     <div className="adminNavbar">
       <div className="content">
@@ -16,7 +18,10 @@ const AdminNavbar = () => {
         </div>
         <div className="sec_two">
           <div className="navIcons">
-            <Settings id="settingsIcon" />
+            <Settings
+              id="settingsIcon"
+              onClick={() => navigate("/admin/account-settings")}
+            />
             <div className="notification">
               <Bell id="bellIcon" onClick={() => setShowNotification(true)} />
               <div
@@ -40,23 +45,6 @@ const AdminNavbar = () => {
           <div className="admin_profile">
             <img src={profile} alt="" />
             <div className="name">Gabriel Borteye</div>
-            <ChevronDown
-              id="arrowDownIcon"
-              onClick={() => setShowProfile(true)}
-            />
-            <div
-              className={
-                showProfile ? "profileDropDown" : "hiddenProfileDropDown"
-              }
-            >
-              <p> helo</p>
-              <p> helo</p>
-              <p> helo</p>
-              <p> helo</p>
-              <p> helo</p>
-              <p> helo</p>
-              <p> helo</p>
-            </div>
           </div>
         </div>
       </div>

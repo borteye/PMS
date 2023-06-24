@@ -1,8 +1,17 @@
 .pharmacistCard2 {
+  width: 49%;
   padding: 0 1rem;
 }
 
 .pharmacistCard2 .cardContainer {
   background-color: white;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   padding: 1rem;
+}
+
+@media screen and (max-width: 1074px) {
+  .pharmacistCard2 {
+    width: 100%;
+  }
 }

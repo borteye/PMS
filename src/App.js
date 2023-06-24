@@ -20,6 +20,9 @@ import PharmacistPurchase from "./Pharmacist/PharmacistPurchase";
 import PharmacistAllCustomer from "./Pharmacist/PharmacistAllCustomer";
 import PharmacistMedicineList from "./Pharmacist/PharmacistMedicineList";
 import PharmacistAddCustomer from "./Pharmacist/PharmacistAddCustomer";
+import PharmacistBag from "./Pharmacist/PharmacistBag";
+import AdminAddCustomer from "./Admin/AdminAddCustomer";
+import AdminSettings from "./Admin/AdminSettings";
 
 function App() {
   return (
@@ -40,25 +43,35 @@ function App() {
             element={<AdminAddMedicine />}
           />
           <Route
-            path="/admin/invoice/invoice-list"
+            path="/admin/invoice-list"
             exact
             element={<AdminInvoiceList />}
           />
           <Route path="/admin/sales" exact element={<AdminSales />} />
           <Route
-            path="/admin/pharmacist/all-pharmacists"
+            path="/admin/all-pharmacists"
             exact
             element={<AdminAllPharmacist />}
           />
           <Route
-            path="/admin/pharmacist/add-pharmacist"
+            path="/admin/add-pharmacist"
             exact
             element={<AdminAddPharmacist />}
           />
           <Route
-            path="/admin/customer/all-customers"
+            path="/admin/all-customers"
             exact
             element={<AdminAllCustomers />}
+          />
+          <Route
+            path="/admin/add-customer"
+            exact
+            element={<AdminAddCustomer />}
+          />
+          <Route
+            path="/admin/account-settings"
+            exact
+            element={<AdminSettings />}
           />
 
           {/* ----pharmacist----- */}
@@ -74,12 +87,12 @@ function App() {
             element={<PharmacistInvoice />}
           />
           <Route
-            path="/pharmacist/invoice/invoice-list"
+            path="/pharmacist/invoice-list"
             exact
             element={<PharmacistInvoiceList />}
           />
           <Route
-            path="/pharmacist/customer/all-customers"
+            path="/pharmacist/all-customers"
             exact
             element={<PharmacistAllCustomer />}
           />
@@ -89,7 +102,7 @@ function App() {
             element={<PharmacistAddCustomer />}
           />
           <Route
-            path="/pharmacist/medicine/medicine-list"
+            path="/pharmacist/medicine-list"
             exact
             element={<PharmacistMedicineList />}
           />
@@ -100,10 +113,11 @@ function App() {
             element={<PharmacistChatPage />}
           />
           <Route
-            path="/pharmacist/purchase"
+            path="/pharmacist/sales"
             exact
             element={<PharmacistPurchase />}
           />
+          <Route path="/pharmacist/bag" exact element={<PharmacistBag />} />
 
           {/* ----- customer ------ */}
 

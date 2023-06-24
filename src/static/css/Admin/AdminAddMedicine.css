@@ -14,7 +14,7 @@
   margin: 0 auto;
   height: 100vh;
   overflow: hidden;
-  grid-template-columns: 11rem auto;
+  grid-template-columns: 12rem auto;
   transition: all 0.4s ease;
   background-color: #e4e4e4;
 }
@@ -71,10 +71,25 @@
   outline: none;
 }
 
-.adminAddMedicine .addMedicine form > div {
+.adminAddMedicine .addMedicine form > .sameStyle {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border: 1px solid #006270;
+  border-radius: 5px;
+}
+
+.adminAddMedicine .addMedicine form .ageRange {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.adminAddMedicine .addMedicine form .time {
+  display: flex;
+}
+.adminAddMedicine .addMedicine form .time input {
   padding: 0.5rem 1rem;
   border: 1px solid #006270;
   border-radius: 5px;

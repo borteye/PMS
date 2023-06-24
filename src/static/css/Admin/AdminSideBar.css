@@ -68,7 +68,8 @@
 
 .adminSideBar li {
   position: relative;
-  margin: 8px 0;
+  /* margin: 20px 0; */
+  margin-bottom: 18px;
   list-style: none;
 }
 

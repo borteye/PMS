@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../static/css/Admin/AdminAllPharmacist.css";
 import { useSelector } from "react-redux";
 import { SelectAdActiveToggle } from "../features/toggleSlice";
@@ -20,16 +20,120 @@ import ReactPaginate from "react-paginate";
 import { PharmacistList } from "../Data/AdminData";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
+import axios from "axios";
 
 const AdminAllPharmacist = () => {
   const [pageNumber, setPageNumber] = useState(0);
-  const [data, setData] = useState(PharmacistList);
+  const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const [deletePharmaict, setDeletePharmacist] = useState();
+  const [updatePharmacist, setUpdatePharmacist] = useState();
+
+  //pharamcist details
+  const [pharmFirstName, setPharmFirstName] = useState("");
+  const [pharmEmail, setPharmEmail] = useState("");
+  const [pharmPhoneNumber, setPharmPhoneNumber] = useState("");
 
   const [showRightBar, setShowRightBar] = useState(false);
+  const [showRightBarEdit, setShowRightBarEdit] = useState(false);
   const [deleteDialog, setDeleteDialog] = useState(false);
 
   const adminMenuToggle = useSelector(SelectAdActiveToggle);
+
+  // fetch all pharmacists
+
+  useEffect(() => {
+    const fetchPharmacist = async () => {
+      await axios
+        .get("http://192.168.38.95:8000/api/pharmacists")
+        .then((res) => {
+          const pharmacist = res.data.pharmacists;
+          setData(pharmacist);
+        });
+    };
+    fetchPharmacist();
+
+    const interval = setInterval(fetchPharmacist, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  //grab pharmacist id for deletion
+  const grabDeleteId = (id) => {
+    setDeletePharmacist(id);
+    setDeleteDialog(true);
+    console.log(deletePharmaict);
+  };
+
+  // delete Pharmacist
+  const handleDeletePharmacist = async () => {
+    await axios
+      .delete(
+        `http://192.168.38.95:8000/api/deletepharmacist/${deletePharmaict}`
+      )
+      .then((res) => {
+        if (res.status == 200) {
+          setTimeout(() => setDeleteDialog(false), 800);
+          setDeletePharmacist(null);
+          const result = data.filter((doc) => doc.id != deletePharmaict);
+          setDeleteDialog(false);
+          setData(result);
+        }
+      });
+  };
+
+  // add Pharmacist
+  const handleAddPharmacist = async (e) => {
+    e.preventDefault();
+    const pharmacistDetails = {
+      pharmFirstName,
+      pharmEmail,
+      pharmPhoneNumber,
+    };
+
+    await axios.post(
+      "http://192.168.38.95:8000/api/addPharmacist",
+      pharmacistDetails
+    );
+    setShowRightBar(false);
+    setPharmFirstName("");
+    setPharmEmail("");
+    setPharmPhoneNumber("");
+  };
+
+  const grabUpdatePharmacistId = async (id) => {
+    setUpdatePharmacist(id);
+    await axios
+      .get(`http://192.168.38.95:8000/api/pharmacist/${id}`)
+      .then((res) => {
+        const details = res.data;
+        setPharmFirstName(details.pharmFirstName);
+        setPharmEmail(details.pharmEmail);
+        setPharmPhoneNumber(details.pharmPhoneNumber);
+
+        setShowRightBarEdit(true);
+      });
+  };
+
+  const handleUpdatePharmacist = async (e) => {
+    e.preventDefault();
+    const pharmacistDetails = {
+      pharmFirstName,
+      pharmEmail,
+      pharmPhoneNumber,
+    };
+
+    await axios.post(
+      `http://192.168.38.95:8000/api/updatepharmacist/${updatePharmacist} `,
+      pharmacistDetails
+    );
+    setShowRightBarEdit(false);
+    setPharmFirstName("");
+    setPharmEmail("");
+    setPharmPhoneNumber("");
+  };
 
   const pharmacistPerPage = 4;
   const pagesVisited = pageNumber * pharmacistPerPage;
@@ -43,7 +147,9 @@ const AdminAllPharmacist = () => {
     .filter((val) => {
       if (search == "") {
         return val;
-      } else if (val.name.toLowerCase().includes(search.toLowerCase())) {
+      } else if (
+        val.pharmFirstName.toLowerCase().includes(search.toLowerCase())
+      ) {
         return val;
       }
     })
@@ -51,18 +157,22 @@ const AdminAllPharmacist = () => {
     .map((item, index) => {
       return (
         <div className="data" key={index}>
-          <div className="number">{item.no}</div>
-          <div className="name-image">
+          <div className="number">1</div>
+          {/* <div className="name-image">
             <img src={item.profile} alt="" />
             <div>{item.name}</div>
-          </div>
-          <div>{item.phone}</div>
-          <div className="email">{item.email}</div>
-          <div>{item.joiningDate}</div>
+          </div> */}
+          <div>{item.pharmFirstName}</div>
+          <div>{item.pharmPhoneNumber}</div>
+          <div className="email">{item.pharmEmail}</div>
+          <div>{item.created_at}</div>
 
           <div className="actions">
-            <Edit id="editIcon" onClick={() => setShowRightBar(true)} />
-            <Trash2 id="trashIcon" onClick={() => setDeleteDialog(true)} />
+            <Edit
+              id="editIcon"
+              onClick={() => grabUpdatePharmacistId(item.id)}
+            />
+            <Trash2 id="trashIcon" onClick={() => grabDeleteId(item.id)} />
           </div>
         </div>
       );
@@ -119,7 +229,6 @@ const AdminAllPharmacist = () => {
                   <div>
                     <small>Joining Date</small>
                   </div>
-
                   <div>
                     <small>Actions</small>
                   </div>
@@ -151,7 +260,7 @@ const AdminAllPharmacist = () => {
               <div></div>
             </div>
             <div className="rightBar-body">
-              <form>
+              <form onSubmit={handleAddPharmacist}>
                 <div className="no">
                   <div className="title">No</div>
                   <div className="flex">
@@ -162,34 +271,120 @@ const AdminAllPharmacist = () => {
                 <div className="pharmacist-name">
                   <div className="title">Pharmacist Name</div>
                   <div className="flex">
-                    <input type="text" placeholder="Pharmacist Name*" />
+                    <input
+                      type="text"
+                      placeholder="Pharmacist Name*"
+                      required
+                      value={pharmFirstName}
+                      onChange={(e) => setPharmFirstName(e.target.value)}
+                    />
                     <User className="addMedIcon" />
                   </div>
                 </div>
                 <div className="phone">
                   <div className="title">Phone Number</div>
                   <div className="flex">
-                    <input type="text" placeholder="Pharmacist Phone*" />
+                    <input
+                      type="text"
+                      placeholder="Pharmacist Phone*"
+                      pattern="[0-9]*"
+                      required
+                      value={pharmPhoneNumber}
+                      onChange={(e) => setPharmPhoneNumber(e.target.value)}
+                    />
                     <Phone className="addMedIcon" />
                   </div>
                 </div>
                 <div className="email">
                   <div className="title">Email</div>
                   <div className="flex">
-                    <input type="text" placeholder="Pharmacist Email*" />
+                    <input
+                      type="email"
+                      placeholder="Pharmacist Email*"
+                      required
+                      value={pharmEmail}
+                      onChange={(e) => setPharmEmail(e.target.value)}
+                    />
                     <Mail className="addMedIcon" />
-                  </div>
-                </div>
-                <div className="joiningDate">
-                  <div className="title">Joining Date</div>
-                  <div className="flex">
-                    <input type="text" placeholder="Joining Date*" />
-                    <Calendar className="addMedIcon" />
                   </div>
                 </div>
                 <p>
                   <div className="buttons">
-                    <button className="saveBtn">
+                    <button className="saveBtn" type="submit">
+                      <Plus className="plusIcon" />
+                    </button>
+                    <button className="closeBtn">
+                      <X
+                        className="closeIcon"
+                        onClick={() => setShowRightBar(false)}
+                      />
+                    </button>
+                  </div>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div
+            className={
+              showRightBarEdit ? "editPharmacistRightBar" : "hideEditRightBar"
+            }
+          >
+            <div className="rightBar-Header">
+              <div className="title">Add Pharmacist</div>
+              <div></div>
+            </div>
+            <div className="rightBar-body">
+              <form onSubmit={handleUpdatePharmacist}>
+                <div className="no">
+                  <div className="title">No</div>
+                  <div className="flex">
+                    <input type="text" placeholder=" No*" />
+                    <Hash className="addMedIcon" />
+                  </div>
+                </div>
+                <div className="pharmacist-name">
+                  <div className="title">Pharmacist Name</div>
+                  <div className="flex">
+                    <input
+                      type="text"
+                      placeholder="Pharmacist Name*"
+                      required
+                      value={pharmFirstName}
+                      onChange={(e) => setPharmFirstName(e.target.value)}
+                    />
+                    <User className="addMedIcon" />
+                  </div>
+                </div>
+                <div className="phone">
+                  <div className="title">Phone Number</div>
+                  <div className="flex">
+                    <input
+                      type="text"
+                      placeholder="Pharmacist Phone*"
+                      pattern="[0-9]*"
+                      required
+                      value={pharmPhoneNumber}
+                      onChange={(e) => setPharmPhoneNumber(e.target.value)}
+                    />
+                    <Phone className="addMedIcon" />
+                  </div>
+                </div>
+                <div className="email">
+                  <div className="title">Email</div>
+                  <div className="flex">
+                    <input
+                      type="email"
+                      placeholder="Pharmacist Email*"
+                      required
+                      value={pharmEmail}
+                      onChange={(e) => setPharmEmail(e.target.value)}
+                    />
+                    <Mail className="addMedIcon" />
+                  </div>
+                </div>
+                <p>
+                  <div className="buttons">
+                    <button className="saveBtn" type="submit">
                       <Plus className="plusIcon" />
                     </button>
                     <button className="closeBtn">
@@ -216,7 +411,9 @@ const AdminAllPharmacist = () => {
                 >
                   Canel
                 </button>
-                <button className="yesBtn">Delete</button>
+                <button className="yesBtn" onClick={handleDeletePharmacist}>
+                  Delete
+                </button>
               </div>
             </div>
           </div>

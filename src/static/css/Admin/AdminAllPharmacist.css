@@ -17,7 +17,7 @@
   height: 100vh;
   overflow: hidden;
   background-color: #e4e4e4;
-  grid-template-columns: 11rem auto;
+  grid-template-columns: 12rem auto;
   transition: all 0.4s ease;
 }
 
@@ -289,6 +289,100 @@
   padding: 0.25rem;
 }
 .adminAllPharmacist .addPharmacistRightBar .closeIcon {
+  color: red;
+  background-color: rgba(207, 67, 67, 0.836);
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+/* ------- Edit - Pharamcist -------  */
+
+.adminAllPharmacist .allPharmacistMain .editPharmacistRightBar {
+  position: absolute;
+  width: 25rem;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  top: 0;
+  right: 0;
+  z-index: 1056;
+  transition: 0.3s;
+}
+.adminAllPharmacist .allPharmacistMain .hideEditRightBar {
+  display: none;
+}
+
+.adminAllPharmacist .editPharmacistRightBar .rightBar-Header {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 0.5rem;
+}
+.adminAllPharmacist .editPharmacistRightBar .rightBar-Header .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+}
+
+.adminAllPharmacist .editPharmacistRightBar .rightBar-body {
+  padding: 0 0.5rem;
+}
+.adminAllPharmacist .editPharmacistRightBar form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+.adminAllPharmacist .editPharmacistRightBar form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.adminAllPharmacist .editPharmacistRightBar form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+}
+
+.adminAllPharmacist .editPharmacistRightBar .addMedIcon {
+  color: #7f7f7f;
+}
+
+.adminAllPharmacist .editPharmacistRightBar form .flex {
+  border-bottom: 1px solid #006270;
+  display: flex;
+  align-items: center;
+}
+
+.adminAllPharmacist .editPharmacistRightBar .rightBar-body .title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.adminAllPharmacist .editPharmacistRightBar .buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.adminAllPharmacist .editPharmacistRightBar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.adminAllPharmacist .editPharmacistRightBar .plusIcon {
+  color: #006270;
+  background-color: #23b0c579;
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+.adminAllPharmacist .editPharmacistRightBar .closeIcon {
   color: red;
   background-color: rgba(207, 67, 67, 0.836);
   border-radius: 50%;

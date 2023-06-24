@@ -1,15 +1,16 @@
 .pharmacistTable1 {
   width: 100%;
   margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  margin-right: 2rem;
+  margin-bottom: 7rem;
 }
 
 .pharmacistTable1 .tableContainer {
+  min-width: 400px;
   background-color: white;
-  margin-right: 1rem;
   padding: 2rem;
   border-radius: 8px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .pharmacistTable1 .heading {
@@ -20,7 +21,9 @@
 .pharmacistTable1 .table {
   margin: 1rem 0;
   overflow-x: scroll;
-  height: 40vh;
+  overflow-y: scroll;
+  height: 50vh;
+  width: 100%;
 }
 
 .pharmacistTable1 .titles {
@@ -28,34 +31,132 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.7rem;
+  padding: 1rem 0;
+  background-color: #006270;
+  color: #ffffff;
 }
 
 .pharmacistTable1 .columnHead {
-  border: 1px solid red;
   min-width: 9.5rem;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
-  color: #616161;
+  font-weight: bold;
 }
+
+.pharmacistTable1 .datas {
+  display: flex;
+  flex-direction: column;
+}
+
 .pharmacistTable1 .data {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 1px solid #7f7f7f;
   gap: 0.7rem;
 }
 
+.pharmacistTable1 .data:hover {
+  background-color: #25252518;
+  .batch {
+    color: #006270;
+  }
+}
+
 .pharmacistTable1 .data > div {
-  border: 1px solid red;
   min-width: 9.5rem;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
-  font-weight: 500;
-  margin: 1rem 0;
+  color: #252525;
   padding: 0.5rem 0;
+}
+
+.pharmacistTable1 .actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pharmacistTable1 .status {
+  background: rgb(178, 240, 178);
+  color: rgb(60, 104, 60);
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+  border-radius: 15px;
+}
+
+.pharmacistTable1 .actions img {
+  cursor: pointer;
+}
+
+/* ---------- DELETE - DIALOG ------------ */
+
+.pharmacistTable1 .deleteDialog {
+  background: rgba(0, 0, 0, 0.301);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+.pharmacistTable1 .deleteDialog img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.pharmacistTable1 .deleteDialog .card {
+  background-color: white;
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.4rem 1.35rem;
+  border-radius: 20px;
+}
+
+.pharmacistTable1 .deleteDialog .text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  width: 12em;
+  margin: 0 auto;
+}
+
+.pharmacistTable1 .deleteDialog .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pharmacistTable1 .deleteDialog .yesBtn,
+.pharmacistTable1 .deleteDialog .noBtn {
+  font-size: 1.125rem;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pharmacistTable1 .deleteDialog .yesBtn {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+.pharmacistTable1 .deleteDialog .noBtn {
+  border: 1px solid rgb(167, 166, 166);
+}
+
+.pharmacistTable1 .hideDeleteDialog {
+  display: none;
 }

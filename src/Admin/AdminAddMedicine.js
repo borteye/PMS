@@ -18,6 +18,7 @@ import AdminNavbar from "../Components/Admin/AdminNavbar";
 
 const AdminAddMedicine = () => {
   const adminMenuToggle = useSelector(SelectAdActiveToggle);
+
   return (
     <div
       className={adminMenuToggle ? "adminAddMedicine open" : "adminAddMedicine"}
@@ -31,37 +32,58 @@ const AdminAddMedicine = () => {
             <div className="card_heading">Add Medicine</div>
             <div className="card">
               <form>
-                <div className="medicineNumber">
+                <div className="sameStyle">
                   <input type="text" placeholder="Batch No*" />
                   <Hash className="addMedIcon" />
                 </div>
-                <div className="medicineName">
+                <div className="sameStyle">
                   <input type="text" placeholder="Medicine Name*" />
                   <FilePlus className="addMedIcon" />
                 </div>
-                <div className="medicineCategory">
+                <div className="sameStyle">
                   <input type="text" placeholder="Medicine Category*" />
                   <List className="addMedIcon" />
                 </div>
-                <div className="companyName">
-                  <input type="text" placeholder="Company Name*" />
-                  <Truck className="addMedIcon" />
-                </div>
-                <div className="purchaseDate">
-                  <input type="text" placeholder="Purchase Date*" />
-                  <Calendar className="addMedIcon" />
-                </div>
-                <div className="medicinePrice">
+                <div className="sameStyle">
                   <input type="text" placeholder="Price*" />
                   <DollarSign className="addMedIcon" />
                 </div>
-                <div className="expiryDate">
+                <div className="sameStyle">
                   <input type="text" placeholder="Expiry Date*" />
                   <Calendar className="addMedIcon" />
                 </div>
-                <div className="stock">
+                <div className="sameStyle">
                   <input type="text" placeholder="Stock*" />
                   <Archive className="addMedIcon" />
+                </div>
+                <div className="ageRange">
+                  <div>
+                    <select name="" id="">
+                      <option>Age Range</option>
+                      <option value="">1 - 5</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select name="" id="">
+                      <option>Age Range</option>
+                      <option value="">1 - 5</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select name="" id="">
+                      <option>Age Range</option>
+                      <option value="">1 - 5</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="time">
+                  <div>Time Range</div>
+                  <div>
+                    <input type="text" />
+                    <button>
+                      <Plus />
+                    </button>
+                  </div>
                 </div>
                 <p>
                   <button className="saveBtn">Save</button>

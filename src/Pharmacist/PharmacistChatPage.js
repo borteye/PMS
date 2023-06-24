@@ -5,13 +5,21 @@ import { Send } from "feather-icons-react";
 import profile from "../static/assets/profile.jpg";
 import PharmacistSideBar from "../Components/Pharmacist/PharmacistSideBar";
 import PharmacistNavbar from "../Components/Pharmacist/PharmacistNavbar";
+import { useSelector } from "react-redux";
+import { SelectPhActiveToggle } from "../features/toggleSlice";
 import uuid from "react-uuid";
 import firebase from "firebase/compat/app";
-import db from "../FConfig";
+// import db from "../FConfig";
 import { useCollection } from "react-firebase-hooks/firestore";
 const PharmacistChatPage = () => {
+  const pharmacistMenuToggle = useSelector(SelectPhActiveToggle);
+
   return (
-    <div className="pharmacistChatPage">
+    <div
+      className={
+        pharmacistMenuToggle ? "pharmacistChatPage open" : "pharmacistChatPage"
+      }
+    >
       <PharmacistSideBar />
       <div className="chatPageMain">
         <PharmacistNavbar />

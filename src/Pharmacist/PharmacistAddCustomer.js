@@ -1,7 +1,7 @@
 import React from "react";
 import "../static/css/Pharmacist/PharmacistAddCustomer.css";
 import { useSelector } from "react-redux";
-import { SelectAdActiveToggle } from "../features/toggleSlice";
+import { SelectPhActiveToggle } from "../features/toggleSlice";
 import {
   Calendar,
   Hash,
@@ -16,7 +16,7 @@ import PharmacistSideBar from "../Components/Pharmacist/PharmacistSideBar";
 import PharmacistNavbar from "../Components/Pharmacist/PharmacistNavbar";
 
 const PharmacistAddCustomer = () => {
-  const pharmacistMenuToggle = useSelector(SelectAdActiveToggle);
+  const pharmacistMenuToggle = useSelector(SelectPhActiveToggle);
   return (
     <div
       className={
@@ -55,16 +55,12 @@ const PharmacistAddCustomer = () => {
                   <Mail className="addMedIcon" />
                 </div>
                 <div>
-                  <input type="text" placeholder="Joining Date*" />
+                  <input type="date" placeholder="Joining Date*" />
                   <Calendar className="addMedIcon" />
                 </div>
                 <p>
-                  <button className="saveBtn">
-                    <Plus id="plusIcon" />
-                  </button>
-                  <button className="closeBtn">
-                    <X id="closeIcon" />
-                  </button>
+                  <button className="saveBtn">Save</button>
+                  <button className="closeBtn">Cancel</button>
                 </p>
               </form>
             </div>

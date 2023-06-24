@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../static/css/Pharmacist/PharmacistMedicineList.css";
-import { useSelector } from "react-redux";
 import { SelectAdActiveToggle } from "../features/toggleSlice";
 import trashCan from "../static/assets/trashCan.gif";
 import ReactPaginate from "react-paginate";
@@ -23,6 +22,12 @@ import {
   Mail,
   X,
 } from "feather-icons-react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  SelectCartItems,
+  addToCart,
+  defaultCart,
+} from "../features/addCartSlice";
 import { MedicineList } from "../Data/AdminData";
 import PharmacistSideBar from "../Components/Pharmacist/PharmacistSideBar";
 import PharmacistNavbar from "../Components/Pharmacist/PharmacistNavbar";
@@ -32,20 +37,20 @@ const PharmacistMedicineList = () => {
   const [data, setData] = useState(MedicineList);
   const [search, setSearch] = useState("");
 
-  const [showRightBar, setShowRightBar] = useState(false);
-  const [deleteDialog, setDeleteDialog] = useState(false);
-
   const pharmacistMenuToggle = useSelector(SelectAdActiveToggle);
+  const cartItems = useSelector(SelectCartItems);
+  console.log(cartItems);
+  const dispatch = useDispatch();
 
-  const productsPerPage = 6;
-  const pagesVisited = pageNumber * productsPerPage;
-  const pageCount = Math.ceil(data.length / productsPerPage);
+  const medicinePerPage = 4;
+  const pagesVisited = pageNumber * medicinePerPage;
+  const pageCount = Math.ceil(data.length / medicinePerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
 
-  const displayProducts = data
+  const displayMedicine = data
     .filter((val) => {
       if (search == "") {
         return val;
@@ -53,12 +58,16 @@ const PharmacistMedicineList = () => {
         return val;
       }
     })
-    .slice(pagesVisited, pagesVisited + productsPerPage)
+    .slice(pagesVisited, pagesVisited + medicinePerPage)
 
     .map((item, index) => {
+      const exist = cartItems.find((doc) => doc.id === item.id);
       return (
         <div className="data" key={index}>
-          <div>{item.name}</div>
+          <div className="productName">
+            <img src={item.image} alt="" />
+            <div>{item.name}</div>
+          </div>
           <div>{item.category}</div>
           <div>{item.company}</div>
           <div className="batch">{item.batch}</div>
@@ -67,15 +76,30 @@ const PharmacistMedicineList = () => {
           <div>{item.expiryDate}</div>
           <div>{item.stock}</div>
           <div className="actions">
-            <Edit id="editIcon" onClick={() => setShowRightBar(true)} />
-            <Trash2 id="trashIcon" onClick={() => setDeleteDialog(true)} />
+            <ShoppingCart
+              id="editIcon"
+              onClick={() => {
+                if (exist) {
+                  dispatch(defaultCart());
+                } else if (!exist) {
+                  dispatch(
+                    addToCart({
+                      id: item.id,
+                      name: item.name,
+                      price: item.price,
+                      quantity: 1,
+                    })
+                  );
+                }
+              }}
+            />
           </div>
         </div>
       );
     });
 
-  function PSProductWidget() {
-    return <>{displayProducts}</>;
+  function MedicineWidget() {
+    return <>{displayMedicine}</>;
   }
 
   return (
@@ -102,9 +126,9 @@ const PharmacistMedicineList = () => {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
-              <button className="addButton">
+              {/* <button className="addButton">
                 <Plus onClick={() => setShowRightBar(true)} />
-              </button>
+              </button> */}
             </div>
             <div className="card">
               <div className="titles">
@@ -137,7 +161,7 @@ const PharmacistMedicineList = () => {
                 </div>
               </div>
               <div className="datas">
-                <PSProductWidget />
+                <MedicineWidget />
               </div>
             </div>
             <div className="pagination">
@@ -155,9 +179,9 @@ const PharmacistMedicineList = () => {
             </div>
           </div>
         </div>
-        <div className={showRightBar ? "addMedicineRightBar" : "hideRightBar"}>
+        {/* <div className={showRightBar ? "addMedicineRightBar" : "hideRightBar"}>
           <div className="rightBar-Header">
-            <div className="title">Add Pharmacist</div>
+            <div className="title">Add Medicine</div>
             <div></div>
           </div>
           <div className="rightBar-body">
@@ -173,21 +197,21 @@ const PharmacistMedicineList = () => {
                 <div className="title">Medicine Name</div>
                 <div className="flex">
                   <input type="text" placeholder="Medicine Name*" />
-                  <User className="addMedIcon" />
+                  <FilePlus className="addMedIcon" />
                 </div>
               </div>
               <div className="medicine-category">
                 <div className="title">Medicine Category</div>
                 <div className="flex">
                   <input type="text" placeholder="Medicine Category*" />
-                  <Phone className="addMedIcon" />
+                  <List className="addMedIcon" />
                 </div>
               </div>
               <div className="company-name">
                 <div className="title">Company Name</div>
                 <div className="flex">
                   <input type="text" placeholder="Company Name*" />
-                  <Mail className="addMedIcon" />
+                  <Truck className="addMedIcon" />
                 </div>
               </div>
               <div className="purchaseDate">
@@ -201,7 +225,7 @@ const PharmacistMedicineList = () => {
                 <div className="title">Price</div>
                 <div className="flex">
                   <input type="text" placeholder="Price*" />
-                  <Calendar className="addMedIcon" />
+                  <DollarSign className="addMedIcon" />
                 </div>
               </div>
               <div className="expiryDate">
@@ -215,23 +239,26 @@ const PharmacistMedicineList = () => {
                 <div className="title">Stock</div>
                 <div className="flex">
                   <input type="text" placeholder="Stock*" />
-                  <Calendar className="addMedIcon" />
+                  <Archive className="addMedIcon" />
                 </div>
               </div>
               <p>
                 <div className="buttons">
                   <button className="saveBtn">
-                    <Plus id="plusIcon" />
+                    <Plus className="plusIcon" />
                   </button>
                   <button className="closeBtn">
-                    <X id="closeIcon" onClick={() => setShowRightBar(false)} />
+                    <X
+                      className="closeIcon"
+                      onClick={() => setShowRightBar(false)}
+                    />
                   </button>
                 </div>
               </p>
             </form>
           </div>
-        </div>
-        <div className={deleteDialog ? "deleteDialog" : "hideDeleteDialog"}>
+        </div> */}
+        {/* <div className={deleteDialog ? "deleteDialog" : "hideDeleteDialog"}>
           <div className="card">
             <img src={trashCan} alt="" />
             <div className="text">
@@ -244,7 +271,7 @@ const PharmacistMedicineList = () => {
               <button className="yesBtn">Delete</button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

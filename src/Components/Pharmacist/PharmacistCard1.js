@@ -1,53 +1,63 @@
 import React from "react";
 import icon from "../../static/assets/icon.svg";
 import "../../static/css/Pharmacist/PharmacistCard1.css";
+import { Users } from "feather-icons-react";
 
 const PharmacistCard1 = () => {
   return (
     <div className="pharmacistCard1">
       <div className="cardContainer">
-        <div className="columns">
-          <div className="card">
-            <div className="icon_percentageGrowth">
+        <div className="card  customers">
+          <div className="icon_details">
+            <div className="icon_container">
               <div className="icon">
-                <img src={icon} alt="" />
+                <Users id="card1-icon" />
               </div>
-              <div className="percentageGrowth">16%</div>
             </div>
-            <div className="number">243</div>
-            <div className="heading">Total employees</div>
-          </div>
-          <div className="card">
-            <div className="icon_percentageGrowth">
-              <div className="icon">
-                <img src={icon} alt="" />
-              </div>
-              <div className="percentageGrowth">16%</div>
+            <div className="details">
+              <div className="heading">Total Customers</div>
+              <div className="number">243</div>
             </div>
-            <div className="number">243</div>
-            <div className="heading">Total employees</div>
           </div>
         </div>
-        <div className="columns">
-          <div className="card">
-            <div className="icon_percentageGrowth">
+
+        <div className="card sales">
+          <div className="icon_details">
+            <div className="icon_container">
               <div className="icon">
-                <img src={icon} alt="" />
+                <Users id="card1-icon" />
               </div>
-              <div className="percentageGrowth">16%</div>
             </div>
-            <div className="number">243</div>
-            <div className="heading">Total employees</div>
+            <div className="details">
+              <div className="heading">Total Sales</div>
+              <div className="number">243</div>
+            </div>
           </div>
-          <div className="card">
-            <div className="icon_percentageGrowth">
+        </div>
+        <div className="card profit">
+          <div className="icon_details">
+            <div className="icon_container">
               <div className="icon">
-                <img src={icon} alt="" />
+                <Users id="card1-icon" />
               </div>
-              <div className="percentageGrowth">16%</div>
             </div>
-            <div className="number">243</div>
-            <div className="heading">Total employees</div>
+            <div className="details">
+              <div className="heading">Total Profit</div>
+              <div className="number">243</div>
+            </div>
+          </div>
+        </div>
+        <div className="card stock">
+          <div className="icon_details">
+            <div className="icon_container">
+              <div className="icon">
+                <Users id="card1-icon" />
+              </div>
+            </div>
+            <div className="details">
+              <div className="heading">Out of Stock</div>
+              <div className="number">243</div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,204 @@
+.pharmacistBag {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 58px auto;
+  transition: all 0.4s ease;
+  background-color: rgb(178, 240, 178);
+}
+
+.pharmacistBag.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 12rem auto;
+  transition: all 0.4s ease;
+  background-color: rgb(178, 240, 178);
+}
+
+.pharmacistBag .allBagMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.pharmacistBag .allBag {
+  padding: 0 1.5rem;
+
+  padding: 1rem;
+}
+
+.pharmacistBag .bagContainer {
+  background-color: #ffffff;
+  display: flex;
+  height: 85vh;
+}
+
+.pharmacistBag .heading {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.pharmacistBag .section_one {
+  width: 65%;
+  padding: 2rem 1.5rem;
+}
+
+.pharmacistBag .section_one .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pharmacistBag .section_one .titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #7f7f7f;
+  margin-top: 1rem;
+}
+.pharmacistBag .section_one .titles .productName,
+.pharmacistBag .section_one .card .details {
+  width: 40%;
+}
+.pharmacistBag .section_one .titles .width,
+.pharmacistBag .section_one .card .width {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.pharmacistBag .section_one .card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.pharmacistBag .section_one .card img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.pharmacistBag .section_one .card .productName {
+  display: flex;
+  gap: 0.5rem;
+}
+.pharmacistBag .section_one .card .details div {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.pharmacistBag .section_one .card .details button {
+  font-weight: 500;
+  font-size: 0.9rem;
+  background-color: transparent;
+  border: none;
+  color: #7f7f7f;
+  cursor: pointer;
+}
+
+.pharmacistBag .section_one .card .width #bagIcon {
+  width: 1.2rem;
+  cursor: pointer;
+}
+.pharmacistBag .section_one .card .width div {
+  border: 1px solid #7f7f7f;
+  padding: 0.3rem 0.5rem;
+  font-weight: 500;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.pharmacistBag .section_two {
+  width: 35%;
+  padding: 2rem 3rem;
+  background-color: #e4e4e4;
+}
+.pharmacistBag .section_two .heading {
+  margin-bottom: 1rem;
+}
+
+.pharmacistBag .section_two .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.pharmacistBag .section_two .card {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.pharmacistBag .section_two .purchase-type,
+.pharmacistBag .section_two .customer-number {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.pharmacistBag .section_two .purchase-type div,
+.pharmacistBag .section_two .customer-number div {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.pharmacistBag .section_two select {
+  width: 80%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  color: #7f7f7f;
+  outline: none;
+}
+.pharmacistBag .section_two input {
+  width: 80%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  color: #7f7f7f;
+  outline: none;
+}
+
+.pharmacistBag .section_two button {
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: 100%;
+  padding: 0.65rem 0;
+  border: none;
+  background-color: #252525;
+  color: white;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .pharmacistBag {
+    grid-template-columns: auto;
+  }
+  .pharmacistBag.open {
+    grid-template-columns: auto;
+  }
+  .pharmacistBag .bagContainer {
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+  }
+  .pharmacistBag .section_one,
+  .pharmacistBag .section_two {
+    width: 100%;
+  }
+}

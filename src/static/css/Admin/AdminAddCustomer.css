@@ -1,4 +1,4 @@
-.pharmacistAddCustomer {
+.adminAddCustomer {
   display: grid;
   max-width: 1440px;
   margin: 0 auto;
@@ -8,7 +8,7 @@
   transition: all 0.4s ease;
   background-color: #e4e4e4;
 }
-.pharmacistAddCustomer.open {
+.adminAddCustomer.open {
   display: grid;
   max-width: 1440px;
   margin: 0 auto;
@@ -19,22 +19,22 @@
   background-color: #e4e4e4;
 }
 
-.pharmacistAddCustomer .addCustomerMain {
+.adminAddCustomer .addCustomerMain {
   height: 100vh;
   overflow-y: scroll;
 }
 
-.pharmacistAddCustomer .addCustomer {
+.adminAddCustomer .addCustomer {
   padding: 0 1.5rem;
 }
 
-.pharmacistAddCustomer .addCustomer .heading {
+.adminAddCustomer .addCustomer .heading {
   font-size: 1.5rem;
   color: #252525;
   font-weight: 500;
 }
 
-.pharmacistAddCustomer .addCustomer .cardContainer {
+.adminAddCustomer .addCustomer .cardContainer {
   background-color: white;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -44,25 +44,25 @@
   margin-bottom: 2rem;
 }
 
-.pharmacistAddCustomer .addCustomer .card_heading {
+.adminAddCustomer .addCustomer .card_heading {
   font-size: 1.025rem;
   font-weight: 500;
 }
 
-.pharmacistAddCustomer .addCustomer .card {
+.adminAddCustomer .addCustomer .card {
   margin-top: 1rem;
 }
 
-.pharmacistAddCustomer .addCustomer form {
+.adminAddCustomer .addCustomer form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.pharmacistAddCustomer .addCustomer form img {
+.adminAddCustomer .addCustomer form img {
   width: 33px;
 }
-.pharmacistAddCustomer .addCustomer form input {
+.adminAddCustomer .addCustomer form input {
   font-size: 1.125rem;
   width: 95%;
   padding: 0.3rem 0;
@@ -71,7 +71,7 @@
   outline: none;
 }
 
-.pharmacistAddCustomer .addCustomer form > div {
+.adminAddCustomer .addCustomer form > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,7 +80,20 @@
   border-radius: 5px;
 }
 
-.pharmacistAddCustomer .addCustomer form p {
+.adminAddCustomer .addCustomer form .customerGender {
+  border: none;
+  padding: 0;
+}
+
+.adminAddCustomer .addCustomer form select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #006270;
+  border-radius: 5px;
+  outline: none;
+}
+
+.adminAddCustomer .addCustomer form p {
   margin: 0;
   padding: 0;
   display: flex;
@@ -88,39 +101,40 @@
   gap: 1rem;
   margin: 0.5rem 0;
 }
-.pharmacistAddCustomer .addCustomer form p > button {
+.adminAddCustomer .addCustomer form p > button {
   font-size: 1.05rem;
   font-weight: 500;
   padding: 0.3rem 1.125rem;
 }
 
-.pharmacistAddCustomer .addCustomer .addMedIcon {
+.adminAddCustomer .addCustomer .addMedIcon {
   color: #7f7f7f;
 }
 
-.pharmacistAddCustomer .addCustomer button {
+.adminAddCustomer .addCustomer button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.pharmacistAddCustomer p .saveBtn {
+.adminAddCustomer p .saveBtn {
   background-color: #23b0c579;
   color: #006270;
   padding: 0.25rem 0.35rem;
   border-radius: 15px;
 }
-.pharmacistAddCustomer p .closeBtn {
+.adminAddCustomer p .closeBtn {
   background-color: rgba(207, 67, 67, 0.836);
   color: red;
   padding: 0.25rem 0.35rem;
   border-radius: 15px;
 }
+
 @media screen and (max-width: 768px) {
-  .pharmacistAddCustomer {
+  .adminAddCustomer {
     grid-template-columns: auto;
   }
-  .pharmacistAddCustomer.open {
+  .adminAddCustomer.open {
     grid-template-columns: auto;
   }
 }

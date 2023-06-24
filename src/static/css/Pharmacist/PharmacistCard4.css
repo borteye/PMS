@@ -1,6 +1,5 @@
 .pharmacistCard4 {
   width: 48%;
-  margin-right: 1rem;
 }
 
 .pharmacistCard4 .cardContainer {
@@ -21,12 +20,13 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
+  width: 98%;
   height: 90%;
   overflow-y: scroll;
 }
 
 .pharmacistCard4 .medicine {
-  width: 100px;
+  width: 120px;
   padding: 1rem;
   background-color: rgb(123, 18, 209);
   border-radius: 15px;
@@ -35,4 +35,10 @@
 .pharmacistCard4 .name {
   font-size: 1.125rem;
   font-weight: 500;
+}
+
+@media screen and (max-width: 912px) {
+  .pharmacistCard4 {
+    width: 100%;
+  }
 }

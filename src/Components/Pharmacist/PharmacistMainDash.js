@@ -10,9 +10,6 @@ import PharmacistTable1 from "./PharmacistTable1";
 const PharmacistMainDash = () => {
   return (
     <div className="pharmacistMainDash">
-      <div className="section_one">
-        <PharmacistNavbar />
-      </div>
       <div className="section_two">
         <PharmacistCard1 />
         <PharmacistCard2 />

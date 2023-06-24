@@ -1,4 +1,4 @@
-/* .pharmacistInvoiceList {
+.pharmacistInvoiceList {
   display: grid;
   max-width: 1440px;
   margin: 0 auto;
@@ -14,11 +14,11 @@
   margin: 0 auto;
   height: 100vh;
   overflow: hidden;
-  grid-template-columns: 11rem auto;
+  grid-template-columns: 12rem auto;
   transition: all 0.4s ease;
   background-color: #e4e4e4;
-} */
-.pharmacistInvoiceList {
+}
+/* .pharmacistInvoiceList {
   display: grid;
   max-width: 1440px;
   margin: 0 auto;
@@ -26,9 +26,9 @@
   overflow: hidden;
   grid-template-columns: 11rem auto;
   transition: all 0.4s ease;
-  /* background-color: #36da8dd7; */
+  background-color: #36da8dd7;
   background-color: rgb(178, 240, 178);
-}
+} */
 
 .pharmacistInvoiceList .invoiceListMain {
   height: 100vh;
@@ -251,6 +251,9 @@
 
 @media screen and (max-width: 768px) {
   .pharmacistInvoiceList {
+    grid-template-columns: auto;
+  }
+  .pharmacistInvoiceList.open {
     grid-template-columns: auto;
   }
 }

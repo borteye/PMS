@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../static/css/Pharmacist/PharmacistInvoiceList.css";
-import { Search, Send, Trash2 } from "feather-icons-react";
+import { Search, Send, Trash2, Eye } from "feather-icons-react";
 import trashCan from "../static/assets/trashCan.gif";
 import ReactPaginate from "react-paginate";
 import { InvoiceList } from "../Data/AdminData";
@@ -14,15 +14,15 @@ const PharmacistInvoiceList = () => {
 
   const [deleteDialog, setDeleteDialog] = useState(false);
 
-  const productsPerPage = 5;
-  const pagesVisited = pageNumber * productsPerPage;
-  const pageCount = Math.ceil(data.length / productsPerPage);
+  const invoicePerPage = 6;
+  const pagesVisited = pageNumber * invoicePerPage;
+  const pageCount = Math.ceil(data.length / invoicePerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
 
-  const displayProducts = data
+  const displayInvoice = data
     .filter((val) => {
       if (search == "") {
         return val;
@@ -33,24 +33,20 @@ const PharmacistInvoiceList = () => {
         return val;
       }
     })
-    .slice(pagesVisited, pagesVisited + productsPerPage)
+    .slice(pagesVisited, pagesVisited + invoicePerPage)
     .map((item, index) => {
       return (
         <div className="data" key={index}>
           <div className="invoiceId">{item.invoiceId}</div>
-          <div className="productName">
-            <img src={item.image} alt="" />
-            <div>{item.name}</div>
-          </div>
+          <div>Gabriel</div>
           <div className="orderId">{item.orderId}</div>
           <div>{item.invoiceGeneratedDate}</div>
           <div>
             <span className="invoice_status">{item.status}</span>
           </div>
           <div>{item.price}</div>
-          <div>{item.quantity}</div>
-
           <div className="actions">
+            <Eye id="sendIcon" />
             <Send id="sendIcon" />
             <Trash2 id="trashIcon" onClick={() => setDeleteDialog(true)} />
           </div>
@@ -58,8 +54,8 @@ const PharmacistInvoiceList = () => {
       );
     });
 
-  function PSProductWidget() {
-    return <>{displayProducts}</>;
+  function InvoiceWidget() {
+    return <>{displayInvoice}</>;
   }
 
   return (
@@ -87,43 +83,41 @@ const PharmacistInvoiceList = () => {
                   <small>Invoice Id</small>
                 </div>
                 <div>
-                  <small>Product Name</small>
+                  <small>Bill To</small>
                 </div>
                 <div>
                   <small>Order #Id</small>
                 </div>
                 <div>
-                  <small>Invoice Generated Date</small>
+                  <small>Created</small>
                 </div>
                 <div>
                   <small>Status</small>
                 </div>
                 <div>
-                  <small>Price</small>
+                  <small>Total</small>
                 </div>
-                <div>
-                  <small>Quantity</small>
-                </div>
+
                 <div>
                   <small>Action</small>
                 </div>
               </div>
               <div className="datas">
-                <PSProductWidget />
+                <InvoiceWidget />
               </div>
-              <div className="pagination">
-                <ReactPaginate
-                  previousLabel={"Previous"}
-                  nextLabel={"Next"}
-                  pageCount={pageCount}
-                  onPageChange={changePage}
-                  containerClassName={"pagination_btns pharmacist"}
-                  previousLinkClassName={"previous_btns"}
-                  nextLinkClassName={"next_btn"}
-                  disabledClassName={"paginationDisabled"}
-                  activeClassName={"paginationActive pharmacist"}
-                />
-              </div>
+            </div>
+            <div className="pagination">
+              <ReactPaginate
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"pagination_btns pharmacist"}
+                previousLinkClassName={"previous_btns"}
+                nextLinkClassName={"next_btn"}
+                disabledClassName={"paginationDisabled"}
+                activeClassName={"paginationActive pharmacist"}
+              />
             </div>
           </div>
         </div>

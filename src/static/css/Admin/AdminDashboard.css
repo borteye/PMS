@@ -16,7 +16,7 @@
   /* width: 100%; */
   height: 100vh;
   overflow: hidden;
-  grid-template-columns: 11rem auto;
+  grid-template-columns: 12rem auto;
   transition: all 0.4s ease;
   background-color: #e4e4e4;
 }

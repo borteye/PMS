@@ -59,6 +59,15 @@
   font-weight: 500;
 }
 
+.pharmacistNavbar .sec_one {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.pharmacistNavbar .sec_one .menu {
+  cursor: pointer;
+}
+
 .pharmacistNavbar .sec_two .notification {
   display: flex;
   align-items: center;
@@ -73,29 +82,209 @@
   display: none;
 }
 
-.pharmacistNavbar .sec_two .cartContainer {
+.pharmacistNavbar .sec_two .shopping-bag {
+  display: flex;
+  align-items: center;
+}
+
+.pharmacistNavbar .sec_two .items-InCart {
+  position: absolute;
+  background-color: #252525;
+  padding: 0 0.35rem;
+  border-radius: 50%;
+  top: 0;
+  font-size: small;
+  color: white;
+  margin-top: 0.5rem;
+  margin-left: 0.7rem;
+}
+
+/* ---- Shooping - Cart - Start ----- */
+.pharmacistNavbar .sec_two .cart {
   position: absolute;
   top: 0;
   right: 0;
-  border: 1px solid red;
+  background-color: white;
+  height: 100vh;
+  width: 250px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  transition: all 0.5s ease;
 }
 
-.pharmacistNavbar .sec_two .hideCartContainer {
-  display: none;
+.pharmacistNavbar .cart .heading {
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.25rem;
+  text-align: center;
+  background-color: #252525;
+  color: #ffffff;
+  padding: 0.5rem 0;
 }
 
-.pharmacistNavbar .pharmacist_profile .profileDropDown {
+.pharmacistNavbar .cart .cartContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.pharmacistNavbar .cartContainer .sec_one {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+}
+
+.pharmacistNavbar .cartContainer .card {
+  border-bottom: 2px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.pharmacistNavbar .cartContainer .sec_one .image_container {
+  background-color: #e4e4e4;
+  width: fit-content;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+.pharmacistNavbar .cartContainer .sec_one .medicine-name {
+  font-size: 1rem;
+}
+.pharmacistNavbar .cartContainer .card .sec_one img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.pharmacistNavbar .cartContainer .card .sec_two {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0;
+}
+.pharmacistNavbar .cartContainer .card .price {
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+.pharmacistNavbar .cartContainer .card .addBtn {
+  background-color: #252525;
+  border: 1px solid #252525;
+  cursor: pointer;
+}
+.pharmacistNavbar .cartContainer .card .plusIcon {
+  color: #ffffff;
+}
+.pharmacistNavbar .cartContainer .card .minusBtn {
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #252525;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.pharmacistNavbar .cart .centerBtn {
+  display: flex;
+  justify-content: center;
+}
+.pharmacistNavbar .cart .proceedBtn {
+  padding: 0.35rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #252525;
+  border: 1px solid #252525;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.pharmacistNavbar .cart .proceedBtn:hover {
+  transition: all 0.3s ease;
+  color: #252525;
+  border: 1px solid #252525;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.pharmacistNavbar .cart .closeBtn {
   position: absolute;
-  right: 0;
-  margin-right: 1rem;
-  margin-top: 5rem;
-  width: 15rem;
-  border: 1px solid red;
+  top: 0;
+  left: 0;
+  margin-top: 0.7rem;
+  margin-left: 0.5rem;
+  color: white;
+  cursor: pointer;
 }
 
-.pharmacistNavbar .pharmacist_profile .hiddenProfileDropDown {
+.pharmacistNavbar .sec_two .cart.hidden {
+  transition: all 0.5s ease;
   display: none;
 }
+
+/* ---- Shooping - Cart - End ----- */
+
+/* ----- Profile DropDown Start ----- */
+
+.pharmacistNavbar .profileDropDown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 0.7rem;
+  margin-top: 3.5rem;
+  width: 17rem;
+  padding: 0.8rem;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.pharmacistNavbar .profileDropDown ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.pharmacistNavbar .profileDropDown a {
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7f7f7f;
+}
+.pharmacistNavbar .profileDropDown a:hover {
+  color: #252525;
+}
+
+.pharmacistNavbar .profileDropDown .first-ul {
+  border-bottom: 1.5px solid #e4e4e4;
+}
+
+.pharmacistNavbar .profileDropDown .profile {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.pharmacistNavbar .profileDropDown .profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.pharmacistNavbar .profileDropDown .profile .name {
+  font-weight: 500;
+}
+.pharmacistNavbar .profileDropDown .profile .email {
+  font-size: 0.8rem;
+}
+
+.pharmacistNavbar .profileDropDown.hide {
+  display: none;
+}
+
+/* ----- Profile DropDown End ----- */
 
 /* @media screen and (max-width: 700px) {
     .pharmacistSubDash .pharmacistNavbar {

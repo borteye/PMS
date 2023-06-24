@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  adminMenuToggle: false,
+  adminMenuToggle: true,
+  pharmacistToggle: true,
 };
 
 export const toggleSlice = createSlice({
@@ -15,12 +16,24 @@ export const toggleSlice = createSlice({
     setAdminCloseToggle: (state) => {
       state.adminMenuToggle = false;
     },
+    setPharmacistActiveToggle: (state, action) => {
+      state.pharmacistToggle = action.payload.pharmacistToggle;
+    },
+
+    setPharmacistCloseToggle: (state) => {
+      state.pharmacistToggle = false;
+    },
   },
 });
 
-export const { setAdminActiveToggle, setAdminCloseToggle } =
-  toggleSlice.actions;
+export const {
+  setAdminActiveToggle,
+  setAdminCloseToggle,
+  setPharmacistActiveToggle,
+  setPharmacistCloseToggle,
+} = toggleSlice.actions;
 
 export const SelectAdActiveToggle = (state) => state.toggle.adminMenuToggle;
+export const SelectPhActiveToggle = (state) => state.toggle.pharmacistToggle;
 
 export default toggleSlice.reducer;

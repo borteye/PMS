@@ -21,18 +21,58 @@ import {
 import { MedicineList } from "../Data/AdminData";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
+import axios from "axios";
 
 const AdminMedicineList = () => {
   const [pageNumber, setPageNumber] = useState(0);
-  const [data, setData] = useState(MedicineList);
+  const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const [deleteMedicine, setDeleteMedicine] = useState();
 
   const [showRightBar, setShowRightBar] = useState(false);
   const [deleteDialog, setDeleteDialog] = useState(false);
 
   const adminMenuToggle = useSelector(SelectAdActiveToggle);
 
+  useEffect(() => {
+    const fetchMedicine = async () => {
+      await axios.get("http://192.168.37.95:8000/api/medicines").then((res) => {
+        const medicine = res.data.allMedicines;
+        setData(medicine);
+      });
+    };
+
+    fetchMedicine();
+
+    const interval = setInterval(fetchMedicine, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const grabDeleteId = (id) => {
+    setDeleteMedicine(id);
+    setDeleteDialog(true);
+  };
+
+  const handleDeleteMedicine = async () => {
+    await axios
+      .delete(`http://192.168.37.95:8000/api/deletemedicine/${deleteMedicine}`)
+      .then((res) => {
+        if (res.status == 200) {
+          setTimeout(() => setDeleteDialog(false), 800);
+          setDeleteMedicine(null);
+          const result = data.filter((doc) => doc.id != deleteMedicine);
+          setData(result);
+        }
+      });
+
+    setDeleteDialog(false);
+  };
+
   const medicinePerPage = 4;
+
   const pagesVisited = pageNumber * medicinePerPage;
   const pageCount = Math.ceil(data.length / medicinePerPage);
 
@@ -44,29 +84,33 @@ const AdminMedicineList = () => {
     .filter((val) => {
       if (search == "") {
         return val;
-      } else if (val.name.toLowerCase().includes(search.toLowerCase())) {
+      } else if (
+        val.medicineName.toLowerCase().includes(search.toLowerCase())
+      ) {
         return val;
       }
     })
     .slice(pagesVisited, pagesVisited + medicinePerPage)
 
-    .map((item, index) => {
+    .map((item) => {
       return (
-        <div className="data" key={index}>
-          <div className="productName">
-            <img src={item.image} alt="" />
-            <div>{item.name}</div>
+        <div className="data" key={item.id}>
+          <div>
+            {/* <img src={item.image} alt="" /> */}
+            <div>{item.medicineName}</div>
           </div>
-          <div>{item.category}</div>
-          <div>{item.company}</div>
-          <div className="batch">{item.batch}</div>
-          <div>{item.purchaseDate}</div>
-          <div>{item.price}</div>
+          <div>{item.description}</div>
+          <div className="batch">225</div>
+          <div>
+            {item.AgeFrom} - {item.AgeTo}
+          </div>
+          <div>{item.dosageInstruction}</div>
+          <div>{item.medicinePrice}</div>
           <div>{item.expiryDate}</div>
-          <div>{item.stock}</div>
+          <div>{item.totalQuantity}</div>
           <div className="actions">
             <Edit id="editIcon" onClick={() => setShowRightBar(true)} />
-            <Trash2 id="trashIcon" onClick={() => setDeleteDialog(true)} />
+            <Trash2 id="trashIcon" onClick={() => grabDeleteId(item.id)} />
           </div>
         </div>
       );
@@ -110,14 +154,15 @@ const AdminMedicineList = () => {
                 <div>
                   <small> Category</small>
                 </div>
-                <div>
-                  <small>Company Name</small>
-                </div>
+
                 <div>
                   <small> Batch Number</small>
                 </div>
                 <div>
-                  <small> Purchase Date</small>
+                  <small> Age Range</small>
+                </div>
+                <div>
+                  <small>Dosage Instruction</small>
                 </div>
                 <div>
                   <small> Price </small>
@@ -134,6 +179,9 @@ const AdminMedicineList = () => {
               </div>
               <div className="datas">
                 <MedicineWidget />
+                {/* {data?.map((items) => {
+                  return <>{items.dosageInstruction}</>;
+                })} */}
               </div>
             </div>
             <div className="pagination">
@@ -240,7 +288,9 @@ const AdminMedicineList = () => {
               <button className="noBtn" onClick={() => setDeleteDialog(false)}>
                 Canel
               </button>
-              <button className="yesBtn">Delete</button>
+              <button className="yesBtn" onClick={handleDeleteMedicine}>
+                Delete
+              </button>
             </div>
           </div>
         </div>
