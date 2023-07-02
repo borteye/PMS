@@ -10,6 +10,10 @@
   padding: 1rem;
 }
 
+.pharmacistCard2 .cardContainer .heading {
+  font-weight: 500;
+}
+
 @media screen and (max-width: 1074px) {
   .pharmacistCard2 {
     width: 100%;

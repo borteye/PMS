@@ -1,6 +1,5 @@
 import React from "react";
 import "../../static/css/Pharmacist/PharmacistMainDash.css";
-import PharmacistNavbar from "./PharmacistNavbar";
 import PharmacistCard1 from "./PharmacistCard1";
 import PharmacistCard2 from "./PharmacistCard2";
 import PharmacistCard3 from "./PharmacistCard3";

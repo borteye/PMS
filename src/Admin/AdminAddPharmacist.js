@@ -3,18 +3,11 @@ import "../static/css/Admin/AdminAddPharmacist.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { SelectAdActiveToggle } from "../features/toggleSlice";
-import {
-  Calendar,
-  Hash,
-  Mail,
-  Phone,
-  Plus,
-  User,
-  X,
-} from "feather-icons-react";
+import { Mail, Phone, User } from "feather-icons-react";
 import axios from "axios";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
+import { baseUrl } from "../config";
 
 const AdminAddPharmacist = () => {
   const [pharmFirstName, setPharmFirstName] = useState("");
@@ -34,14 +27,12 @@ const AdminAddPharmacist = () => {
       pharmPhoneNumber,
     };
 
-    await axios.post(
-      "http://192.168.38.95:8000/api/addPharmacist",
-      pharmacistDetails
-    );
+    await axios.post(`${baseUrl}/api/addPharmacist`, pharmacistDetails);
 
     setPharmFirstName("");
     setPharmEmail("");
     setPharmPhoneNumber("");
+    navigate("/admin/all-pharmacists");
   };
 
   return (
@@ -59,10 +50,6 @@ const AdminAddPharmacist = () => {
             <div className="card_heading">Add Pharmacist</div>
             <div className="card">
               <form onSubmit={handleAddPharmacist}>
-                {/* <div className="pharmacistNumber">
-                  <input type="text" placeholder="No*" />
-                  <Hash className="addMedIcon" />
-                </div> */}
                 <div className="pharmacistName">
                   <input
                     type="text"

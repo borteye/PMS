@@ -19,6 +19,16 @@
   position: relative;
 }
 
+.adminSideBar .logo-details img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin-left: -1.125rem;
+}
+.adminSideBar.open .logo-details img {
+  margin-left: 0;
+}
+
 .adminSideBar .logo-name {
   font-size: 22px;
   font-weight: 600;
@@ -32,26 +42,27 @@
 
 .adminSideBar .menuBtn {
   position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  inset: 0;
+  margin: 0.5rem auto;
+  transform: translateY(-5%);
   font-size: 23px;
-  text-align: right;
+  text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
   z-index: 12;
+  border: 1px solid red;
 }
 
-.adminSideBar .menuBtn.open {
+/* .adminSideBar .menuBtn.open {
   position: absolute;
-  top: 50%;
+  top: 0;
   right: 0;
-  transform: translateY(-50%);
+  transform: translateY(-5%);
   font-size: 23px;
-  text-align: right;
+  text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
-}
+} */
 
 .adminSideBar #sideBar-Icon {
   height: 60px;
@@ -170,7 +181,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .adminSideBar {
+  /* .adminSideBar {
+    display: none;
+  } */
+
+  .menuBtn {
     display: none;
   }
 }

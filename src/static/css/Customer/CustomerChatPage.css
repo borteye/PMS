@@ -1,0 +1,206 @@
+.customerChatPage .content {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.customerChatPage .main {
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.customerChatPage .cardContainer {
+  padding: 0.5rem 4rem;
+  height: 88.9vh;
+  background-color: #e4e4e4;
+  display: grid;
+  grid-template-columns: 18rem auto;
+  gap: 1rem;
+}
+
+.customerChatPage .card1 {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.customerChatPage .card1 .heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.customerChatPage .search {
+  display: flex;
+  align-items: center;
+  background-color: #e4e4e4;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0.2rem 0.3rem;
+  border-radius: 8px;
+}
+
+.customerChatPage .search input {
+  border: none;
+  outline: none;
+  font-size: 1.12rem;
+  padding: 0.2rem;
+  width: 90%;
+  background-color: transparent;
+}
+
+.customerChatPage #searchIcon {
+  color: #006270;
+  width: 20px;
+}
+
+.customerChatPage .card1 .chats {
+  height: 64.5vh;
+  overflow-y: scroll;
+}
+
+.customerChatPage .card1 .chat {
+  display: flex;
+  gap: 1rem;
+  padding: 0.25rem 0;
+  border-bottom: 0.05px solid #e4e4e4;
+  cursor: pointer;
+}
+.customerChatPage .card1 .chat:hover {
+  background-color: #e4e4e4;
+}
+
+.customerChatPage .card1 .chat img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.customerChatPage .card1 .chat div {
+  font-weight: 500;
+}
+
+/* .customerChatPage .card2 {
+  width: 72%;
+} */
+
+.customerChatPage .card2 .heading {
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.customerChatPage .card2 .backIcon {
+  display: none;
+}
+
+.customerChatPage .card2 .heading img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.customerChatPage .card2 .chatArea {
+  height: calc(84.3vh - (77px + 42px));
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 0.5rem;
+}
+
+.customerChatPage .chatArea .received {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.customerChatPage .chatArea .received .message {
+  background-color: #006270;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  max-width: 40%;
+  color: white;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px 8px 8px 0;
+}
+.customerChatPage .chatArea .sent {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  gap: 0.75rem;
+}
+
+.customerChatPage .chatArea .sent .message {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: #252525;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px 8px 0 8px;
+}
+
+.customerChatPage .sendMessage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: whitesmoke;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+}
+
+.customerChatPage .sendMessage input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 50%;
+  font-size: 1.025rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.customerChatPage .sendMessage div {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.customerChatPage .sendMessage #sendIcon {
+  width: 24px;
+  color: #006270;
+}
+
+@media screen and (max-width: 768px) {
+  .customerChatPage .cardContainer {
+    padding: 0.5rem 2rem;
+    grid-template-columns: 12rem auto;
+  }
+}
+
+@media screen and (max-width: 617px) {
+  .customerChatPage .card2 .backIcon {
+    display: block;
+  }
+  .customerChatPage .cardContainer {
+    grid-template-columns: auto;
+  }
+
+  .customerChatPage .card1.hidden,
+  .customerChatPage .card2.hidden {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .customerChatPage .cardContainer {
+    padding: 0.5rem 1rem;
+  }
+}

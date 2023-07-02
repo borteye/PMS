@@ -1,12 +1,18 @@
 import React from "react";
 import "../static/css/Admin/AdminSettings.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { SelectAdActiveToggle } from "../features/toggleSlice";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
 import profile from "../static/assets/profile.jpg";
 
 const AdminSettings = () => {
+  const adminMenuToggle = useSelector(SelectAdActiveToggle);
+  const navigate = useNavigate();
+
   return (
-    <div className="adminSettings">
+    <div className={adminMenuToggle ? "adminSettings open" : "adminSettings"}>
       <AdminSideBar />
       <div className="adminSettingsMain">
         <AdminNavbar />
@@ -38,7 +44,18 @@ const AdminSettings = () => {
                 </div>
               </div>
             </div>
-            <div className="card2">g</div>
+            <div className="card2">
+              <div className="title">Change password</div>
+              <div className="preamble">
+                You can change the password to your account
+              </div>
+              <button
+                className="changePBtn"
+                onClick={() => navigate("/change-password")}
+              >
+                Change Password
+              </button>
+            </div>
           </div>
         </div>
       </div>

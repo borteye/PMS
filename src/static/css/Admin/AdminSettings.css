@@ -40,13 +40,13 @@
   margin-top: 3rem;
   display: flex;
   align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .adminSettings .settings .card1 {
   background-color: white;
   height: 40vh;
-  width: 55%;
+  width: 68%;
   padding: 1rem 2rem;
   border-radius: 8px;
 }
@@ -124,4 +124,59 @@
   width: 100%;
   font-weight: 500;
   color: #7f7f7f;
+}
+
+.adminSettings .settings .card2 {
+  background-color: white;
+  min-height: 30vh;
+  width: 30%;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.adminSettings .settings .card2 .title {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.adminSettings .settings .card2 .preamble {
+  font-size: 1rem;
+  color: #7f7f7f;
+  font-weight: bold;
+}
+
+.adminSettings .settings .card2 .changePBtn {
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  color: #006270;
+  border-radius: 8px;
+  border: 1.5px solid #f3f3f3;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .adminSettings {
+    grid-template-columns: 58px auto;
+  }
+}
+
+@media screen and (max-width: 893px) {
+  .adminSettings .settings .cardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .adminSettings .settings .card1 {
+    width: 100%;
+  }
+  .adminSettings .settings .card2 {
+    width: 45%;
+  }
 }

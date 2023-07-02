@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../static/css/Admin/AdminSideBar.css";
 import {
   setAdminActiveToggle,
   setAdminCloseToggle,
   SelectAdActiveToggle,
 } from "../../features/toggleSlice";
+import logo from "../../static/assets/phIcon.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Menu,
@@ -14,7 +15,6 @@ import {
   Tag,
   Clipboard,
 } from "feather-icons-react";
-import { SideBarData } from "../../Data/AdminData";
 
 const AdminSideBar = () => {
   const dispatch = useDispatch();
@@ -35,13 +35,15 @@ const AdminSideBar = () => {
   return (
     <div className={adminMenuToggle ? "adminSideBar open" : "adminSideBar "}>
       <div className="logo-details">
+        <img src={logo} alt="" />
         <div className="logo-name">Pharmacy</div>
-        {adminMenuToggle ? (
-          <Menu className="menuBtn open" onClick={() => toggleClose()} />
-        ) : (
-          <Menu className="menuBtn" onClick={() => toggleOpen()} />
-        )}
       </div>
+      {adminMenuToggle ? (
+        <Menu className="menuBtn open" onClick={() => toggleClose()} />
+      ) : (
+        <Menu className="menuBtn" onClick={() => toggleOpen()} />
+      )}
+
       <ul className="nav-list">
         <li>
           <a href="/admin/dashboard">
@@ -96,9 +98,9 @@ const AdminSideBar = () => {
         <li>
           <a href="/admin/medicine-list">
             <Grid id="sideBar-Icon" />
-            <span className="link-name">Medicine</span>
+            <span className="link-name">Medicines</span>
           </a>
-          <span className="tooltip">Medicine</span>
+          <span className="tooltip">Medicines</span>
         </li>
         <li>
           <a href="/admin/add-medicine">

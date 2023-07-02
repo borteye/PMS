@@ -10,17 +10,15 @@ import {
   Trash2,
   User,
   X,
-  Calendar,
   Hash,
   Mail,
   Phone,
 } from "feather-icons-react";
-
 import ReactPaginate from "react-paginate";
-import { PharmacistList } from "../Data/AdminData";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
 import axios from "axios";
+import { baseUrl } from "../config";
 
 const AdminAllPharmacist = () => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -44,12 +42,10 @@ const AdminAllPharmacist = () => {
 
   useEffect(() => {
     const fetchPharmacist = async () => {
-      await axios
-        .get("http://192.168.38.95:8000/api/pharmacists")
-        .then((res) => {
-          const pharmacist = res.data.pharmacists;
-          setData(pharmacist);
-        });
+      await axios.get(`${baseUrl}/api/pharmacists`).then((res) => {
+        const pharmacist = res.data.pharmacists;
+        setData(pharmacist);
+      });
     };
     fetchPharmacist();
 
@@ -70,9 +66,7 @@ const AdminAllPharmacist = () => {
   // delete Pharmacist
   const handleDeletePharmacist = async () => {
     await axios
-      .delete(
-        `http://192.168.38.95:8000/api/deletepharmacist/${deletePharmaict}`
-      )
+      .delete(`${baseUrl}/api/deletepharmacist/${deletePharmaict}`)
       .then((res) => {
         if (res.status == 200) {
           setTimeout(() => setDeleteDialog(false), 800);
@@ -93,10 +87,7 @@ const AdminAllPharmacist = () => {
       pharmPhoneNumber,
     };
 
-    await axios.post(
-      "http://192.168.38.95:8000/api/addPharmacist",
-      pharmacistDetails
-    );
+    await axios.post(`${baseUrl}/api/addPharmacist`, pharmacistDetails);
     setShowRightBar(false);
     setPharmFirstName("");
     setPharmEmail("");
@@ -105,16 +96,14 @@ const AdminAllPharmacist = () => {
 
   const grabUpdatePharmacistId = async (id) => {
     setUpdatePharmacist(id);
-    await axios
-      .get(`http://192.168.38.95:8000/api/pharmacist/${id}`)
-      .then((res) => {
-        const details = res.data;
-        setPharmFirstName(details.pharmFirstName);
-        setPharmEmail(details.pharmEmail);
-        setPharmPhoneNumber(details.pharmPhoneNumber);
+    await axios.get(`${baseUrl}/api/pharmacist/${id}`).then((res) => {
+      const details = res.data;
+      setPharmFirstName(details.pharmFirstName);
+      setPharmEmail(details.pharmEmail);
+      setPharmPhoneNumber(details.pharmPhoneNumber);
 
-        setShowRightBarEdit(true);
-      });
+      setShowRightBarEdit(true);
+    });
   };
 
   const handleUpdatePharmacist = async (e) => {
@@ -126,7 +115,7 @@ const AdminAllPharmacist = () => {
     };
 
     await axios.post(
-      `http://192.168.38.95:8000/api/updatepharmacist/${updatePharmacist} `,
+      `${baseUrl}/api/updatepharmacist/${updatePharmacist}`,
       pharmacistDetails
     );
     setShowRightBarEdit(false);
@@ -153,15 +142,11 @@ const AdminAllPharmacist = () => {
         return val;
       }
     })
-    .slice(pagesVisited, pagesVisited + pharmacistPerPage)
+
     .map((item, index) => {
       return (
         <div className="data" key={index}>
-          <div className="number">1</div>
-          {/* <div className="name-image">
-            <img src={item.profile} alt="" />
-            <div>{item.name}</div>
-          </div> */}
+          <div className="number">{index + 1}</div>
           <div>{item.pharmFirstName}</div>
           <div>{item.pharmPhoneNumber}</div>
           <div className="email">{item.pharmEmail}</div>
@@ -176,7 +161,8 @@ const AdminAllPharmacist = () => {
           </div>
         </div>
       );
-    });
+    })
+    .slice(pagesVisited, pagesVisited + pharmacistPerPage);
 
   function PharmacistWidget() {
     return <>{displayPharmacist}</>;
@@ -261,13 +247,6 @@ const AdminAllPharmacist = () => {
             </div>
             <div className="rightBar-body">
               <form onSubmit={handleAddPharmacist}>
-                <div className="no">
-                  <div className="title">No</div>
-                  <div className="flex">
-                    <input type="text" placeholder=" No*" />
-                    <Hash className="addMedIcon" />
-                  </div>
-                </div>
                 <div className="pharmacist-name">
                   <div className="title">Pharmacist Name</div>
                   <div className="flex">
@@ -330,18 +309,11 @@ const AdminAllPharmacist = () => {
             }
           >
             <div className="rightBar-Header">
-              <div className="title">Add Pharmacist</div>
+              <div className="title">Edit Pharmacist</div>
               <div></div>
             </div>
             <div className="rightBar-body">
               <form onSubmit={handleUpdatePharmacist}>
-                <div className="no">
-                  <div className="title">No</div>
-                  <div className="flex">
-                    <input type="text" placeholder=" No*" />
-                    <Hash className="addMedIcon" />
-                  </div>
-                </div>
                 <div className="pharmacist-name">
                   <div className="title">Pharmacist Name</div>
                   <div className="flex">

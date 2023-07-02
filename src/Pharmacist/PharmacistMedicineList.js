@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from "react";
 import "../static/css/Pharmacist/PharmacistMedicineList.css";
-import { SelectAdActiveToggle } from "../features/toggleSlice";
-import trashCan from "../static/assets/trashCan.gif";
+import { SelectPhActiveToggle } from "../features/toggleSlice";
 import ReactPaginate from "react-paginate";
-import {
-  Plus,
-  Search,
-  ShoppingCart,
-  ShoppingBag,
-  Edit,
-  Trash2,
-  Calendar,
-  Truck,
-  Archive,
-  DollarSign,
-  Hash,
-  FilePlus,
-  List,
-  User,
-  Phone,
-  Mail,
-  X,
-} from "feather-icons-react";
+import { Search, ShoppingCart } from "feather-icons-react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   SelectCartItems,
   addToCart,
-  defaultCart,
+  updateCart,
 } from "../features/addCartSlice";
-import { MedicineList } from "../Data/AdminData";
+import { toast } from "react-toastify";
 import PharmacistSideBar from "../Components/Pharmacist/PharmacistSideBar";
 import PharmacistNavbar from "../Components/Pharmacist/PharmacistNavbar";
+import { baseUrl } from "../config";
+import axios from "axios";
 
 const PharmacistMedicineList = () => {
   const [pageNumber, setPageNumber] = useState(0);
-  const [data, setData] = useState(MedicineList);
+  const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
 
-  const pharmacistMenuToggle = useSelector(SelectAdActiveToggle);
+  const pharmacistMenuToggle = useSelector(SelectPhActiveToggle);
   const cartItems = useSelector(SelectCartItems);
   console.log(cartItems);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchMedicine = async () => {
+      await axios.get(`${baseUrl}/api/medicines`).then((res) => {
+        const medicine = res.data.allMedicines;
+        setData(medicine);
+      });
+    };
+
+    fetchMedicine();
+
+    const interval = setInterval(fetchMedicine, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   const medicinePerPage = 4;
   const pagesVisited = pageNumber * medicinePerPage;
@@ -60,36 +60,58 @@ const PharmacistMedicineList = () => {
     })
     .slice(pagesVisited, pagesVisited + medicinePerPage)
 
-    .map((item, index) => {
+    .map((item) => {
       const exist = cartItems.find((doc) => doc.id === item.id);
       return (
-        <div className="data" key={index}>
-          <div className="productName">
-            <img src={item.image} alt="" />
-            <div>{item.name}</div>
+        <div className="data" key={item.id}>
+          <div>
+            <div>{item.medicineName}</div>
           </div>
-          <div>{item.category}</div>
-          <div>{item.company}</div>
-          <div className="batch">{item.batch}</div>
-          <div>{item.purchaseDate}</div>
-          <div>{item.price}</div>
+          <div>{item.description}</div>
+          <div className="batch">225</div>
+          <div>
+            {item.AgeFrom} - {item.AgeTo}
+          </div>
+          <div>{item.dosageInstruction}</div>
+          <div>{item.medicinePrice}</div>
           <div>{item.expiryDate}</div>
-          <div>{item.stock}</div>
+          <div>{item.totalQuantity}</div>
           <div className="actions">
             <ShoppingCart
               id="editIcon"
               onClick={() => {
                 if (exist) {
-                  dispatch(defaultCart());
+                  dispatch(updateCart(item.id));
+                  toast.success("Added to cart", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
                 } else if (!exist) {
                   dispatch(
                     addToCart({
                       id: item.id,
-                      name: item.name,
-                      price: item.price,
+                      name: item.medicineName,
+                      price: item.medicinePrice,
                       quantity: 1,
+                      total_price: item.medicinePrice,
                     })
                   );
+                  toast.success("Added to cart", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
                 }
               }}
             />
@@ -126,9 +148,6 @@ const PharmacistMedicineList = () => {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
-              {/* <button className="addButton">
-                <Plus onClick={() => setShowRightBar(true)} />
-              </button> */}
             </div>
             <div className="card">
               <div className="titles">
@@ -138,14 +157,15 @@ const PharmacistMedicineList = () => {
                 <div>
                   <small> Category</small>
                 </div>
-                <div>
-                  <small>Company Name</small>
-                </div>
+
                 <div>
                   <small> Batch Number</small>
                 </div>
                 <div>
-                  <small> Purchase Date</small>
+                  <small> Age Range</small>
+                </div>
+                <div>
+                  <small>Dosage Instruction</small>
                 </div>
                 <div>
                   <small> Price </small>
@@ -179,99 +199,6 @@ const PharmacistMedicineList = () => {
             </div>
           </div>
         </div>
-        {/* <div className={showRightBar ? "addMedicineRightBar" : "hideRightBar"}>
-          <div className="rightBar-Header">
-            <div className="title">Add Medicine</div>
-            <div></div>
-          </div>
-          <div className="rightBar-body">
-            <form>
-              <div className="no">
-                <div className="title">Batch No</div>
-                <div className="flex">
-                  <input type="text" placeholder="Batch No*" />
-                  <Hash className="addMedIcon" />
-                </div>
-              </div>
-              <div className="medicine-name">
-                <div className="title">Medicine Name</div>
-                <div className="flex">
-                  <input type="text" placeholder="Medicine Name*" />
-                  <FilePlus className="addMedIcon" />
-                </div>
-              </div>
-              <div className="medicine-category">
-                <div className="title">Medicine Category</div>
-                <div className="flex">
-                  <input type="text" placeholder="Medicine Category*" />
-                  <List className="addMedIcon" />
-                </div>
-              </div>
-              <div className="company-name">
-                <div className="title">Company Name</div>
-                <div className="flex">
-                  <input type="text" placeholder="Company Name*" />
-                  <Truck className="addMedIcon" />
-                </div>
-              </div>
-              <div className="purchaseDate">
-                <div className="title">Purchase Date</div>
-                <div className="flex">
-                  <input type="text" placeholder="Purchase Date*" />
-                  <Calendar className="addMedIcon" />
-                </div>
-              </div>
-              <div className="price">
-                <div className="title">Price</div>
-                <div className="flex">
-                  <input type="text" placeholder="Price*" />
-                  <DollarSign className="addMedIcon" />
-                </div>
-              </div>
-              <div className="expiryDate">
-                <div className="title">Expiry Date</div>
-                <div className="flex">
-                  <input type="text" placeholder="Expiry Date*" />
-                  <Calendar className="addMedIcon" />
-                </div>
-              </div>
-              <div className="stock">
-                <div className="title">Stock</div>
-                <div className="flex">
-                  <input type="text" placeholder="Stock*" />
-                  <Archive className="addMedIcon" />
-                </div>
-              </div>
-              <p>
-                <div className="buttons">
-                  <button className="saveBtn">
-                    <Plus className="plusIcon" />
-                  </button>
-                  <button className="closeBtn">
-                    <X
-                      className="closeIcon"
-                      onClick={() => setShowRightBar(false)}
-                    />
-                  </button>
-                </div>
-              </p>
-            </form>
-          </div>
-        </div> */}
-        {/* <div className={deleteDialog ? "deleteDialog" : "hideDeleteDialog"}>
-          <div className="card">
-            <img src={trashCan} alt="" />
-            <div className="text">
-              Are you sure you want to delete this file?
-            </div>
-            <div className="buttons">
-              <button className="noBtn" onClick={() => setDeleteDialog(false)}>
-                Canel
-              </button>
-              <button className="yesBtn">Delete</button>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

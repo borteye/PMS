@@ -32,7 +32,7 @@
   justify-content: space-between;
   gap: 0.7rem;
   padding: 1rem 0;
-  background-color: #006270;
+  background-color: black;
   color: #ffffff;
 }
 
@@ -87,8 +87,6 @@
 }
 
 .pharmacistTable1 .status {
-  background: rgb(178, 240, 178);
-  color: rgb(60, 104, 60);
   font-size: 0.85rem;
   padding: 0 0.5rem;
   border-radius: 15px;

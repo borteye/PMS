@@ -102,6 +102,7 @@
 .pharmacistAllCustomers .allCustomers .titles {
   display: flex;
   align-items: center;
+  width: max-content;
   justify-content: space-between;
   gap: 0.5rem;
   padding: 1rem 0;
@@ -128,6 +129,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: max-content;
   margin: 0;
   padding: 0;
   gap: 0.5rem;
@@ -289,6 +291,100 @@
   border-radius: 50%;
   padding: 0.25rem;
 }
+
+/* --------Edit - Customer --------------- */
+.pharmacistAllCustomers .allCustomersMain .editCustomerRightBar {
+  position: absolute;
+  width: 25rem;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  top: 0;
+  right: 0;
+  z-index: 1056;
+  transition: 0.3s;
+}
+.pharmacistAllCustomers .allCustomersMain .hideEditRightBar {
+  display: none;
+}
+
+.pharmacistAllCustomers .editCustomerRightBar .rightBar-Header {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 0.5rem;
+}
+.pharmacistAllCustomers .editCustomerRightBar .rightBar-Header .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+}
+
+.pharmacistAllCustomers .editCustomerRightBar .rightBar-body {
+  padding: 0 0.5rem;
+}
+.pharmacistAllCustomers .editCustomerRightBar form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+.pharmacistAllCustomers .editCustomerRightBar form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.pharmacistAllCustomers .editCustomerRightBar form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+}
+
+.pharmacistAllCustomers .editCustomerRightBar .addMedIcon {
+  color: #7f7f7f;
+}
+
+.pharmacistAllCustomers .editCustomerRightBar form .flex {
+  border-bottom: 1px solid #006270;
+  display: flex;
+  align-items: center;
+}
+
+.pharmacistAllCustomers .editCustomerRightBar .rightBar-body .title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.pharmacistAllCustomers .editCustomerRightBar .buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.pharmacistAllCustomers .editCustomerRightBar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.pharmacistAllCustomers .editCustomerRightBar .plusIcon {
+  color: #006270;
+  background-color: #23b0c579;
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+.pharmacistAllCustomers .editCustomerRightBar .closeIcon {
+  color: red;
+  background-color: rgba(207, 67, 67, 0.836);
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
 /* ---------- DELETE - DIALOG ------------ */
 
 .pharmacistAllCustomers .deleteDialog {

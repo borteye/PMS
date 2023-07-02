@@ -27,8 +27,10 @@
 
 .pharmacistCard4 .medicine {
   width: 120px;
+  height: 80px;
   padding: 1rem;
-  background-color: rgb(123, 18, 209);
+  background-color: black;
+  color: white;
   border-radius: 15px;
 }
 

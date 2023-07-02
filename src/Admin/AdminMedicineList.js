@@ -18,16 +18,16 @@ import {
   List,
   X,
 } from "feather-icons-react";
-import { MedicineList } from "../Data/AdminData";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
 import axios from "axios";
+import { baseUrl } from "../config";
 
 const AdminMedicineList = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  const [deleteMedicine, setDeleteMedicine] = useState();
+  const [deleteMedicine, setDeleteMedicine] = useState("");
 
   const [showRightBar, setShowRightBar] = useState(false);
   const [deleteDialog, setDeleteDialog] = useState(false);
@@ -36,7 +36,7 @@ const AdminMedicineList = () => {
 
   useEffect(() => {
     const fetchMedicine = async () => {
-      await axios.get("http://192.168.37.95:8000/api/medicines").then((res) => {
+      await axios.get(`${baseUrl}/api/medicines`).then((res) => {
         const medicine = res.data.allMedicines;
         setData(medicine);
       });
@@ -58,7 +58,7 @@ const AdminMedicineList = () => {
 
   const handleDeleteMedicine = async () => {
     await axios
-      .delete(`http://192.168.37.95:8000/api/deletemedicine/${deleteMedicine}`)
+      .delete(`${baseUrl}/api/deletemedicine/${deleteMedicine}`)
       .then((res) => {
         if (res.status == 200) {
           setTimeout(() => setDeleteDialog(false), 800);
@@ -91,12 +91,10 @@ const AdminMedicineList = () => {
       }
     })
     .slice(pagesVisited, pagesVisited + medicinePerPage)
-
     .map((item) => {
       return (
         <div className="data" key={item.id}>
           <div>
-            {/* <img src={item.image} alt="" /> */}
             <div>{item.medicineName}</div>
           </div>
           <div>{item.description}</div>
@@ -179,9 +177,6 @@ const AdminMedicineList = () => {
               </div>
               <div className="datas">
                 <MedicineWidget />
-                {/* {data?.map((items) => {
-                  return <>{items.dosageInstruction}</>;
-                })} */}
               </div>
             </div>
             <div className="pagination">

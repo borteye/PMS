@@ -1,12 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../static/css/Admin/AdminTable1.css";
-import trashCan from "../../static/assets/trashCan.gif";
-import { ProductSales } from "../../Data/AdminData";
-import { Eye, Trash2 } from "feather-icons-react";
+import { baseUrl } from "../../config";
+import axios from "axios";
 
 const AdminTable1 = () => {
-  const [data, setData] = useState(ProductSales);
-  const [deleteDialog, setDeleteDialog] = useState(false);
+  const [recentSales, setRecentSales] = useState([]);
+  let arr = [];
+
+  useEffect(() => {
+    const fetchRecentSales = async () => {
+      const { data } = await axios.get(`${baseUrl}/api/sales`);
+      console.log(data);
+      const lastFourSales = data.allSales.length - 4;
+      for (let i = data.allSales.length - 1; i >= lastFourSales; i--) {
+        let reSales = data.allSales[i];
+        arr.push(reSales);
+        setRecentSales(arr);
+      }
+    };
+
+    fetchRecentSales();
+  }, []);
+
+  const colors = (status) => {
+    if (status === "Paid") {
+      return {
+        color: "#3c683c",
+        backgroundColor: "#b2f0b2",
+      };
+    } else if (status === "Uncompleted") {
+      return {
+        color: " #9c6118",
+        backgroundColor: "#f2b366",
+      };
+    } else if (status === "Unpaid") {
+      return {
+        color: "#ff0000",
+        backgroundColor: "#cf4343d5",
+      };
+    }
+  };
 
   return (
     <div className="adminTable">
@@ -15,63 +48,45 @@ const AdminTable1 = () => {
         <div className="table">
           <div className="titles">
             <div className="columnHead">
-              <small className="head">Order #</small>
-              <img src="" alt="" />
+              <small className="head">Sales id#</small>
             </div>
             <div className="columnHead">
               <small className="head">Customer</small>
-              <img src="" alt="" />
             </div>
             <div className="columnHead">
-              <small className="head">Product Name</small>
-              <img src="" alt="" />
+              <small className="head">Sold By</small>
             </div>
             <div className="columnHead">
-              <small className="head">Purchase Price</small>
-              <img src="" alt="" />
+              <small className="head">Purchase Date</small>
+            </div>
+            <div className="columnHead">
+              <small className="head">Total Quantity</small>
+            </div>
+            <div className="columnHead">
+              <small className="head">Total Price</small>
             </div>
             <div className="columnHead">
               <small className="head">Status</small>
-              <img src="" alt="" />
-            </div>
-            <div className="columnHead">
-              <small className="head">Action</small>
-              <img src="" alt="" />
             </div>
           </div>
           <div className="datas">
-            {data?.map((item, index) => {
+            {recentSales.map((item, index) => {
               return (
                 <div className="data" key={index}>
-                  <div>{item.orderNumber}</div>
-                  <div>{item.customer}</div>
-                  <div>{item.productName}</div>
-                  <div>{item.price}</div>
+                  <div>{item.id}</div>
+                  <div>{item.customerFirstName}</div>
+                  <div>{item.pharmacistName}</div>
+                  <div>{item.created_at}</div>
+                  <div>{item.total_quantity}</div>
+                  <div>${item.total_price}</div>
                   <div>
-                    <span className="status">{item.stauts}</span>
-                  </div>
-                  <div className="actions">
-                    <Eye id="editIcon" />
-                    <Trash2
-                      id="trashIcon"
-                      onClick={() => setDeleteDialog(true)}
-                    />
+                    <span style={colors(item.status)} className="status">
+                      {item.status}
+                    </span>
                   </div>
                 </div>
               );
             })}
-          </div>
-        </div>
-      </div>
-      <div className={deleteDialog ? "deleteDialog" : "hideDeleteDialog"}>
-        <div className="card">
-          <img src={trashCan} alt="" />
-          <div className="text">Are you sure you want to delete this file?</div>
-          <div className="buttons">
-            <button className="noBtn" onClick={() => setDeleteDialog(false)}>
-              Canel
-            </button>
-            <button className="yesBtn">Delete</button>
           </div>
         </div>
       </div>

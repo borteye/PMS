@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../static/css/Admin/AdminNavbar.css";
 import { useNavigate } from "react-router-dom";
-import { Bell, ChevronDown, ShoppingBag, Settings } from "feather-icons-react";
+import { Bell, Settings, X, User } from "feather-icons-react";
 import profile from "../../static/assets/profile.jpg";
 
 const AdminNavbar = () => {
@@ -22,22 +22,89 @@ const AdminNavbar = () => {
               id="settingsIcon"
               onClick={() => navigate("/admin/account-settings")}
             />
-            <div className="notification">
+
+            {showNotification ? (
+              <Bell
+                id="bellIcon close"
+                onClick={() => setShowNotification(false)}
+              />
+            ) : (
               <Bell id="bellIcon" onClick={() => setShowNotification(true)} />
-              <div
-                className={
-                  showNotification
-                    ? "dropNoitification"
-                    : "hideDropNotification"
-                }
-              >
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
+            )}
+
+            <div
+              className={
+                showNotification ? "dropNoitification" : "hideDropNotification"
+              }
+            >
+              <div className="nav">
+                <div>Notifications</div>
+                <span>Mark all as read</span>
+              </div>
+              <div className="cardContainer">
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
               </div>
             </div>
           </div>

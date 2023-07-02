@@ -1,0 +1,22 @@
+{
+  "allSales": {
+    "dailySales": [
+      {
+        "week": "week 1",
+        "salesMade": 115
+      },
+      {
+        "week": "week 2",
+        "salesMade": 345
+      },
+      {
+        "week": "week 3",
+        "salesMade": 145
+      },
+      {
+        "week": "week 3",
+        "salesMade": 724
+      }
+    ]
+  }
+}

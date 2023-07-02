@@ -85,8 +85,6 @@
 }
 
 .adminTable .status {
-  background: rgb(178, 240, 178);
-  color: rgb(60, 104, 60);
   font-size: 0.85rem;
   padding: 0 0.5rem;
   border-radius: 15px;

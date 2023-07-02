@@ -111,17 +111,14 @@
   border-radius: 15px;
 }
 .adminAddPharmacist p .closeBtn {
-  background-color: rgba(207, 67, 67, 0.836);
-  color: red;
+  background-color: #cf4343d5;
+  color: #ff0000;
   padding: 0.25rem 0.35rem;
   border-radius: 15px;
 }
 
 @media screen and (max-width: 768px) {
   .adminAddPharmacist {
-    grid-template-columns: auto;
-  }
-  .adminAddPharmacist.open {
-    grid-template-columns: auto;
+    grid-template-columns: 58px auto;
   }
 }

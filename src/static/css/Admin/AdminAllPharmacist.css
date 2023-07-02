@@ -194,10 +194,7 @@
 
 @media screen and (max-width: 768px) {
   .adminAllPharmacist {
-    grid-template-columns: auto;
-  }
-  .adminAllPharmacist.open {
-    grid-template-columns: auto;
+    grid-template-columns: 58px auto;
   }
 }
 

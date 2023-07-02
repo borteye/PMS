@@ -1,20 +1,13 @@
 import React, { useState } from "react";
 import "../static/css/Admin/AdminAddCustomer.css";
-import {
-  Calendar,
-  Hash,
-  Mail,
-  Phone,
-  Plus,
-  User,
-  X,
-} from "feather-icons-react";
+import { Mail, Phone, User } from "feather-icons-react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { SelectAdActiveToggle } from "../features/toggleSlice";
 import axios from "axios";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
+import { baseUrl } from "../config";
 
 const AdminAddCustomer = () => {
   const [customerFirstName, setCustomerFirstName] = useState("");
@@ -39,16 +32,14 @@ const AdminAddCustomer = () => {
       customerContact,
     };
 
-    await axios.post(
-      "http://192.168.37.95:8000/api/registerCustomer",
-      customerDetails
-    );
+    await axios.post(`${baseUrl}/api/registerCustomer`, customerDetails);
     setCustomerFirstName("");
     setCustomerLastName("");
     setCustomerEmail("");
     setCustomerGender("");
     setCustomerBirthDate("");
     setCustomerContact("");
+    navigate("/admin/all-customers");
   };
 
   return (
@@ -64,10 +55,6 @@ const AdminAddCustomer = () => {
             <div className="card_heading">Add Customer</div>
             <div className="card">
               <form onSubmit={handleAddCustomer}>
-                {/* <div className="customerNumber">
-                <input type="text" placeholder="No*" />
-                <Hash className="addMedIcon" />
-              </div> */}
                 <div className="customerFirstName">
                   <input
                     type="text"

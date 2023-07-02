@@ -132,9 +132,6 @@
 
 @media screen and (max-width: 768px) {
   .adminAddCustomer {
-    grid-template-columns: auto;
-  }
-  .adminAddCustomer.open {
-    grid-template-columns: auto;
+    grid-template-columns: 58px auto;
   }
 }

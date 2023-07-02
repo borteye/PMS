@@ -58,7 +58,7 @@
 }
 @media screen and (max-width: 768px) {
   .adminDashboard {
-    grid-template-columns: auto;
+    grid-template-columns: 58px auto;
   }
   .adminDashboard .dashboardContainer {
     display: grid;
@@ -66,8 +66,5 @@
     grid-template-rows: 1.2fr 1.2fr;
     height: 100vh;
     overflow-y: scroll;
-  }
-  .adminDashboard.open {
-    grid-template-columns: auto;
   }
 }

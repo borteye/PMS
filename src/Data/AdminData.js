@@ -26,30 +26,22 @@ export const SideBarData = [
   },
 ];
 
-export const WeeklySales = [
+export const weeklySales = [
   {
-    id: 1,
     week: "week 1",
-    salesMade: 1145,
-    color: "black",
+    salesMade: 115,
   },
   {
-    id: 2,
     week: "week 2",
     salesMade: 345,
-    color: "yellow",
   },
   {
-    id: 3,
     week: "week 3",
     salesMade: 145,
-    color: "#7f7f7f7",
   },
   {
-    id: 4,
     week: "week 3",
     salesMade: 724,
-    color: "brown",
   },
 ];
 

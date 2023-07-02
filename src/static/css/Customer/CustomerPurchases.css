@@ -1,0 +1,87 @@
+.customerPruchases .main {
+  height: calc(100vh - (70px + 159px));
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.customerPruchases .main .heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+}
+
+.customerPruchases .main .cardContainer {
+  padding: 0 3rem;
+}
+
+.customerPruchases .main .card {
+  margin-top: 1rem;
+  height: 70vh;
+  overflow-x: scroll;
+}
+
+.customerPruchases .main .titles {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 1rem 0;
+  background-color: #006270;
+  color: #ffffff;
+}
+
+.customerPruchases .main .columnHead {
+  min-width: 12rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.customerPruchases .main .datas {
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.customerPruchases .main .data {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+.customerPruchases .main .data:hover {
+  background-color: #25252518;
+  .batch {
+    color: #006270;
+  }
+}
+
+.customerPruchases .main .data > div {
+  min-width: 12rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.customerPruchases .main .status {
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+  border-radius: 15px;
+}

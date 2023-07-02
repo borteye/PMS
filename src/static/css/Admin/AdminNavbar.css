@@ -59,41 +59,72 @@
   font-weight: 500;
 }
 
-.adminNavbar .sec_two .notification {
-  display: flex;
-  align-items: center;
-}
-
-.adminNavbar .sec_two .dropNoitification {
-  position: absolute;
-  border: 1px solid red;
-}
-
-.adminNavbar .sec_two .hideDropNotification {
-  display: none;
-}
-
-.adminNavbar .sec_two .cartContainer {
+.adminNavbar .dropNoitification {
   position: absolute;
   top: 0;
   right: 0;
-  border: 1px solid red;
-}
-
-.adminNavbar .sec_two .hideCartContainer {
-  display: none;
-}
-
-.adminNavbar .admin_profile .profileDropDown {
-  position: absolute;
-  right: 0;
   margin-right: 1rem;
-  margin-top: 5rem;
-  width: 15rem;
-  border: 1px solid red;
+  width: 20rem;
+  margin-top: 3.7rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
-.adminNavbar .admin_profile .hiddenProfileDropDown {
+.adminNavbar .dropNoitification .nav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1rem 0.85rem;
+  background-color: #006270;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+
+.adminNavbar .dropNoitification .nav div {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.adminNavbar .dropNoitification .nav span {
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.adminNavbar .dropNoitification .cardContainer {
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.adminNavbar .dropNoitification .card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.85rem;
+  border-bottom: 1.5px solid #d4d4d4;
+  cursor: pointer;
+}
+
+.adminNavbar .dropNoitification .card:hover {
+  background-color: #e4e4e4;
+}
+
+.adminNavbar .dropNoitification .card div {
+  font-weight: 500;
+}
+
+.adminNavbar .dropNoitification .flex {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.adminNavbar .notificationCloseBtn {
+  width: 0.95rem;
+}
+
+.adminNavbar .sec_two .hideDropNotification {
   display: none;
 }
 

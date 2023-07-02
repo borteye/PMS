@@ -1,0 +1,194 @@
+.customerSettings .content {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.customerSettings .main {
+  height: calc(100vh - (70px + 159px));
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.customerSettings .settings {
+  padding: 0 1.5rem;
+}
+
+.customerSettings .settings .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+  border-bottom: 1px solid #7f7f7f;
+  padding: 0.5rem 0;
+}
+
+.customerSettings .settings .cardContainer {
+  margin-top: 3rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.customerSettings .settings .card1 {
+  background-color: white;
+  height: 40vh;
+  width: 68%;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+
+.customerSettings .settings .card1 .title {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.customerSettings .settings .card1 img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.customerSettings .settings .flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.customerSettings .settings .sec_two {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.customerSettings .settings button {
+  cursor: pointer;
+}
+
+.customerSettings .settings .uploadBtn {
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  color: #006270;
+  border-radius: 8px;
+  border: 1.5px solid #f3f3f3;
+}
+.customerSettings .settings .deleteBtn {
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  color: #006270;
+  border-radius: 8px;
+  border: 1.5px solid #006270;
+}
+
+.customerSettings .settings form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.customerSettings .settings .details .name,
+.customerSettings .settings .details .email {
+  width: 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.customerSettings .settings .details .title {
+  font-size: 0.88rem;
+}
+.customerSettings .settings .details input {
+  border: 1px solid #7f7f7f;
+  padding: 0.35rem 0 0.35rem 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 500;
+  color: #252525;
+  font-size: 1.025rem;
+  outline-color: #006270;
+}
+
+.customerSettings .settings .details button {
+  font-size: 0.95rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #006270;
+  color: white;
+}
+
+.customerSettings .settings .card2 {
+  background-color: white;
+  min-height: 30vh;
+  width: 30%;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.customerSettings .settings .card2 .title {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.customerSettings .settings .card2 .preamble {
+  font-size: 1rem;
+  color: #7f7f7f;
+  font-weight: bold;
+}
+
+.customerSettings .settings .card2 .changePBtn {
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  color: #006270;
+  border-radius: 8px;
+  border: 1.5px solid #f3f3f3;
+  width: 100%;
+}
+
+@media screen and (max-width: 893px) {
+  .customerSettings .settings .cardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .customerSettings .settings .card1 {
+    width: 100%;
+  }
+  .customerSettings .settings .card2 {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 551px) {
+  .customerSettings .settings .flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .customerSettings .settings .card1 {
+    margin-bottom: 2rem;
+  }
+
+  .customerSettings .settings .card1,
+  .customerSettings .settings .details,
+  .customerSettings .settings .card2 {
+    width: 100%;
+  }
+
+  .customerSettings .settings .details .name,
+  .customerSettings .settings .details .email {
+    width: 50%;
+  }
+}

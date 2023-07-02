@@ -1,5 +1,4 @@
 import React from "react";
-import icon from "../../static/assets/icon.svg";
 import "../../static/css/Pharmacist/PharmacistCard1.css";
 import { Users } from "feather-icons-react";
 

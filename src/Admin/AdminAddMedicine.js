@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../static/css/Admin/AdminAddMedicine.css";
 import { useSelector } from "react-redux";
 import { SelectAdActiveToggle } from "../features/toggleSlice";
 import {
   Calendar,
-  Truck,
   Archive,
   DollarSign,
   Hash,

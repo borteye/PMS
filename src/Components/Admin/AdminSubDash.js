@@ -1,6 +1,5 @@
 import React from "react";
 import "../../static/css/Admin/AdminSubDash.css";
-import AdminNavbar from "./AdminNavbar";
 import AdminCard3 from "./AdminCard3";
 import AdminReview from "./AdminReview";
 

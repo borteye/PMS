@@ -231,10 +231,7 @@
 
 @media screen and (max-width: 768px) {
   .adminInvoiceList {
-    grid-template-columns: auto;
-  }
-  .adminInvoiceList.open {
-    grid-template-columns: auto;
+    grid-template-columns: 58px auto;
   }
 }
 

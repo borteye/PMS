@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  adminMenuToggle: true,
+  adminMenuToggle: false,
   pharmacistToggle: true,
 };
 

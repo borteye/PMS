@@ -133,10 +133,6 @@
 
 @media screen and (max-width: 768px) {
   .adminAddMedicine {
-    grid-template-columns: auto;
-  }
-
-  .adminAddMedicine.open {
-    grid-template-columns: auto;
+    grid-template-columns: 58px auto;
   }
 }

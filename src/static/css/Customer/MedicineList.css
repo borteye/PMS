@@ -1,0 +1,199 @@
+.customerMedicineList .main {
+  height: calc(100vh - (70px + 159px));
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.customerMedicineList .main .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+  text-align: center;
+}
+
+.customerMedicineList .main .cardContainer {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+  padding: 1rem 4rem;
+  margin-top: 1.5rem;
+  height: fit-content;
+}
+
+.customerMedicineList .main .cardNavbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.customerMedicineList .main .card_heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.customerMedicineList .main .search {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.customerMedicineList .main .search img {
+  width: 23px;
+}
+
+.customerMedicineList .main .search input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  padding: 0.2rem;
+  background-color: transparent;
+  width: 90%;
+}
+
+.customerMedicineList .main .addButton {
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #006270;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.customerMedicineList .main .addButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.customerMedicineList .main .card {
+  margin-top: 1rem;
+  overflow-x: scroll;
+}
+
+.customerMedicineList .main .titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: max-content;
+  padding: 1rem 0;
+  background-color: #006270;
+  color: #ffffff;
+  margin: 0 auto;
+}
+
+.customerMedicineList .main .titles > div {
+  min-width: 10.7rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.customerMedicineList .main .datas {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.customerMedicineList .main .datas .data {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 0.5rem;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+.customerMedicineList .main .data > div {
+  min-width: 10.7rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customerMedicineList .main .data:hover {
+  background-color: #25252518;
+  .batch {
+    color: #006270;
+  }
+}
+
+/* ----Age Range ---- Dosages ----- */
+
+.customerMedicineList .ageRange_Dosages {
+  background: rgba(0, 0, 0, 0.301);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+.customerMedicineList .ageRange_Dosages .closeBtn {
+  padding: 0.65rem;
+  font-size: 0.98rem;
+  background-color: #006270;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.customerMedicineList .ageRange_Dosages .content {
+  background-color: white;
+  width: 24.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 40vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.customerMedicineList .ageRange_Dosages .card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.customerMedicineList .ageRange_Dosages small {
+  font-weight: 500;
+  letter-spacing: 1.125px;
+}
+.customerMedicineList .ageRange_Dosages .card div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.customerMedicineList .ageRange_Dosages .card .data {
+  border: 1px solid #7f7f7f;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.customerMedicineList .ageRange_Dosages.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .customerMedicineList .main .cardContainer {
+    padding: 1rem 2rem;
+  }
+  .customerMedicineList .main .heading {
+    font-size: 1.1rem;
+  }
+}

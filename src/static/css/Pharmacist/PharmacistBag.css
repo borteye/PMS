@@ -146,14 +146,16 @@
 }
 
 .pharmacistBag .section_two .purchase-type,
-.pharmacistBag .section_two .customer-number {
+.pharmacistBag .section_two .customer-number,
+.pharmacistBag .section_two .amount-paid {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
 
 .pharmacistBag .section_two .purchase-type div,
-.pharmacistBag .section_two .customer-number div {
+.pharmacistBag .section_two .customer-number div,
+.pharmacistBag .section_two .amount-paid div {
   text-transform: uppercase;
   font-weight: 500;
 }

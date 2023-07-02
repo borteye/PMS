@@ -1,73 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../static/css/Pharmacist/PharmacistCard3.css";
-import { ExpiringList } from "../../Data/PharmacistData";
-import DoughnutChart from "../../Charts/Pharmacist/DoughnutChart";
+import { baseUrl } from "../../config";
+import axios from "axios";
 
 const PharmacistCard3 = () => {
-  const [expiryData, setExpiryData] = useState({
-    labels: ExpiringList.map((data) => data.year),
-    datasets: [
-      {
-        label: "expiry",
-        data: ExpiringList.map((data) => data.quantity),
-        borderRadius: 5,
-      },
-    ],
-  });
+  const [expiredMedicines, setExpiredMedicines] = useState([]);
+
+  useEffect(() => {
+    const expiredMedicine = async () => {
+      const { data } = await axios.get(`${baseUrl}/api/medicines`);
+      console.log(data);
+      setExpiredMedicines(data.expiredMedicine);
+    };
+
+    expiredMedicine();
+  }, []);
   return (
     <div className="pharmacistCard3">
       <div className="cardContainer">
         <div className="flex">
-          <div className="heading">Expiring List</div>
-          <div className="seeAll">See All</div>
+          <div className="heading">Expired Medicine</div>
         </div>
         <div className="card">
           <div className="titles">
             <div>Medicine name</div>
             <div>Expiry Date</div>
             <div>Quantity</div>
-            <div>Chart</div>
           </div>
-          <div className="data">
-            <div>Doxycycline</div>
-            <div>24 Dec 2021</div>
-            <div>40</div>
-            <div className="chart">
-              <DoughnutChart chartData={expiryData} />
-            </div>
-          </div>
-          <div className="data">
-            <div>Doxycycline</div>
-            <div>24 Dec 2021</div>
-            <div>40</div>
-            <div className="chart">
-              <DoughnutChart chartData={expiryData} />
-            </div>
-          </div>
-          <div className="data">
-            <div>Doxycycline</div>
-            <div>24 Dec 2021</div>
-            <div>40</div>
-            <div className="chart">
-              <DoughnutChart chartData={expiryData} />
-            </div>
-          </div>
-          <div className="data">
-            <div>Doxycycline</div>
-            <div>24 Dec 2021</div>
-            <div>40</div>
-            <div className="chart">
-              <DoughnutChart chartData={expiryData} />
-            </div>
-          </div>
-          <div className="data">
-            <div>Doxycycline</div>
-            <div>24 Dec 2021</div>
-            <div>40</div>
-            <div className="chart">
-              <DoughnutChart chartData={expiryData} />
-            </div>
-          </div>
+          {expiredMedicines?.map((item, index) => {
+            return (
+              <div className="data" key={index}>
+                <div>{item.medicineName}</div>
+                <div>{item.expiryDate}</div>
+                <div>{item.totalQuantity}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -1,0 +1,45 @@
+.customerFooter footer {
+  padding: 1rem 3rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: #006270;
+  /* margin-top: 4rem; */
+}
+
+.customerFooter footer .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.customerFooter footer .logo img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+}
+
+.customerFooter footer .footer-links {
+  color: white;
+}
+
+.customerFooter footer ul li a {
+  text-decoration: none;
+  color: #e4e4e4;
+  cursor: pointer;
+}
+.customerFooter footer ul li a:hover {
+  color: white;
+}
+
+.customerFooter footer .footer-links .heading {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .customerFooter footer {
+    padding: 1rem;
+  }
+}

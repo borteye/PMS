@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../static/css/Admin/AdminAllCustomers.css";
 import { useSelector } from "react-redux";
 import { SelectAdActiveToggle } from "../features/toggleSlice";
-import { CustomerList } from "../Data/AdminData";
+
 import {
   Plus,
   Search,
@@ -10,8 +10,6 @@ import {
   Trash2,
   User,
   X,
-  Calendar,
-  Hash,
   Mail,
   Phone,
 } from "feather-icons-react";
@@ -21,14 +19,15 @@ import ReactPaginate from "react-paginate";
 import AdminSideBar from "../Components/Admin/AdminSideBar";
 import AdminNavbar from "../Components/Admin/AdminNavbar";
 import axios from "axios";
+import { baseUrl } from "../config";
 
 const AdminAllCustomers = () => {
   const [show, setShow] = useState(false);
   const [pageNumber, setPageNumber] = useState(0);
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  const [deleteCustomer, setDeleteCustomer] = useState();
-  const [updateCustomer, setUpdateCustomer] = useState();
+  const [deleteCustomer, setDeleteCustomer] = useState("");
+  const [updateCustomer, setUpdateCustomer] = useState("");
 
   //customer details
   const [customerFirstName, setCustomerFirstName] = useState("");
@@ -45,10 +44,9 @@ const AdminAllCustomers = () => {
   const adminMenuToggle = useSelector(SelectAdActiveToggle);
 
   //fetch all customers data
-
   useEffect(() => {
     const fetchCustomers = async () => {
-      await axios.get("http://192.168.37.95:8000/api/customers").then((res) => {
+      await axios.get(`${baseUrl}/api/customers`).then((res) => {
         const customers = res.data.customers;
         setData(customers);
       });
@@ -64,7 +62,6 @@ const AdminAllCustomers = () => {
   }, []);
 
   // grab customer id for deletion
-
   const grabDeleteId = (id) => {
     setDeleteCustomer(id);
     setDeleteDialog(true);
@@ -74,7 +71,7 @@ const AdminAllCustomers = () => {
   // delete customer
   const handleDeleteCustomer = async () => {
     await axios
-      .delete(`http://192.168.37.95:8000/api/deletecustomer/${deleteCustomer}`)
+      .delete(`${baseUrl}/api/deletecustomer/${deleteCustomer}`)
       .then((res) => {
         if (res.status == 200) {
           setTimeout(() => setDeleteDialog(false), 800);
@@ -97,10 +94,7 @@ const AdminAllCustomers = () => {
       customerContact,
     };
 
-    await axios.post(
-      "http://192.168.37.95:8000/api/registerCustomer",
-      customerDetails
-    );
+    await axios.post(`${baseUrl}/api/registerCustomer`, customerDetails);
     setShowRightBar(false);
     setCustomerFirstName("");
     setCustomerLastName("");
@@ -112,21 +106,20 @@ const AdminAllCustomers = () => {
 
   const grabUpdateCustomerId = async (id) => {
     setUpdateCustomer(id);
-    await axios
-      .get(`http://192.168.37.95:8000/api/customer/${id}`)
-      .then((res) => {
-        const details = res.data;
-        setCustomerFirstName(details.customerFirstName);
-        setCustomerLastName(details.customerLastName);
-        setCustomerEmail(details.customerEmail);
-        setCustomerGender(details.customerGender);
-        setCustomerBirthDate(details.customerBirthDate);
-        setCustomerContact(details.customerContact);
+    await axios.get(`${baseUrl}/api/customer/${id}`).then((res) => {
+      const details = res.data;
+      setCustomerFirstName(details.customerFirstName);
+      setCustomerLastName(details.customerLastName);
+      setCustomerEmail(details.customerEmail);
+      setCustomerGender(details.customerGender);
+      setCustomerBirthDate(details.customerBirthDate);
+      setCustomerContact(details.customerContact);
 
-        setShowRightBarEdit(true);
-      });
+      setShowRightBarEdit(true);
+    });
   };
 
+  //update Customer
   const handleUpdateCustomer = async (e) => {
     e.preventDefault();
     const customerDetails = {
@@ -139,7 +132,7 @@ const AdminAllCustomers = () => {
     };
 
     await axios.post(
-      `http://192.168.37.95:8000/api/updatecustomer/${updateCustomer} `,
+      `${baseUrl}/api/updatecustomer/${updateCustomer} `,
       customerDetails
     );
     setShowRightBarEdit(false);
@@ -170,11 +163,10 @@ const AdminAllCustomers = () => {
         return val;
       }
     })
-    .slice(pagesVisited, pagesVisited + customerPerPage)
-    .map((item) => {
+    .map((item, index) => {
       return (
         <div className="data" key={item.id}>
-          <div className="number">1</div>
+          <div className="number">{index + 1}</div>
           <div className="name-image">
             <img src={profile} alt="" />
             <div>
@@ -193,7 +185,8 @@ const AdminAllCustomers = () => {
           </div>
         </div>
       );
-    });
+    })
+    .slice(pagesVisited, pagesVisited + customerPerPage);
 
   function CustomerWidget() {
     return <>{displayCustomers}</>;
@@ -278,13 +271,6 @@ const AdminAllCustomers = () => {
           </div>
           <div className="rightBar-body">
             <form onSubmit={handleAddCustomer}>
-              {/* <div className="no">
-                <div className="title">No</div>
-                <div className="flex">
-                  <input type="text" placeholder=" No*" />
-                  <Hash className="addMedIcon" />
-                </div>
-              </div> */}
               <div className="customer-name">
                 <div className="title">Customer First</div>
                 <div className="flex">
@@ -335,7 +321,6 @@ const AdminAllCustomers = () => {
                     onChange={(e) => setCustomerBirthDate(e.target.value)}
                     required
                   />
-                  {/* <Calendar className="addMedIcon" /> */}
                 </div>
               </div>
               <div className="mobile">
@@ -443,7 +428,6 @@ const AdminAllCustomers = () => {
                     onChange={(e) => setCustomerBirthDate(e.target.value)}
                     required
                   />
-                  {/* <Calendar className="addMedIcon" /> */}
                 </div>
               </div>
               <div className="mobile">

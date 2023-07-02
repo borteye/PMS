@@ -6,6 +6,7 @@ import {
   setPharmacistCloseToggle,
   SelectPhActiveToggle,
 } from "../../features/toggleSlice";
+import { setUserLogoutState } from "../../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SelectCartItems } from "../../features/addCartSlice";
@@ -19,6 +20,7 @@ import {
   User,
   Menu,
   Trello,
+  X,
 } from "feather-icons-react";
 
 const PharmacistNavbar = () => {
@@ -30,6 +32,10 @@ const PharmacistNavbar = () => {
 
   const pharmacistToggle = useSelector(SelectPhActiveToggle);
   const cartItems = useSelector(SelectCartItems);
+
+  const totalQuantity = cartItems.reduce((accumulator, object) => {
+    return accumulator + object.quantity;
+  }, 0);
 
   const toggleOpen = () => {
     dispatch(
@@ -56,173 +62,98 @@ const PharmacistNavbar = () => {
         </div>
         <div className="sec_two">
           <div className="navIcons">
-            <div className="notification">
-              <Bell id="bellIcon" onClick={() => setShowNotification(true)} />
-              <div
-                className={
-                  showNotification
-                    ? "dropNoitification"
-                    : "hideDropNotification"
-                }
-              >
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-              </div>
-            </div>
-            <div className="shopping-bag">
-              <ShoppingBag
-                id="sBagIcon"
-                onClick={() => navigate("/pharmacist/bag")}
+            {showNotification ? (
+              <Bell
+                id="bellIcon close"
+                onClick={() => setShowNotification(false)}
               />
-              <div className="items-InCart">{cartItems.length}</div>
+            ) : (
+              <Bell id="bellIcon" onClick={() => setShowNotification(true)} />
+            )}
+
+            <div
+              className={
+                showNotification ? "dropNoitification" : "hideDropNotification"
+              }
+            >
+              <div className="nav">
+                <div>Notifications</div>
+                <span>Mark all as read</span>
+              </div>
+              <div className="cardContainer">
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+                <div className="card">
+                  <div className="flex">
+                    <User className="notificationTypeBtn" />
+                    <div>New Customer Added...</div>
+                  </div>
+                  <X className="notificationCloseBtn" />
+                </div>
+              </div>
             </div>
+          </div>
 
-            {/* <div className={showCart ? "cart" : "cart hidden"}>
-              <div className="heading">Cart</div>
-              <div className="cartContainer">
-                <div className="card">
-                  <div className="sec_one">
-                    <div className="image_container">
-                      <img src={amox} alt="" />
-                    </div>
-                    <div className="medicine-name">Paracetamol</div>
-                  </div>
-                  <div className="sec_two">
-                    <div>
-                      <button className="addBtn">
-                        <Plus className="plusIcon" />
-                      </button>
-                    </div>
-
-                    <div className="price">100</div>
-                    <div>
-                      <button className="minusBtn">
-                        <Minus className="minusIcon" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="sec_one">
-                    <div className="image_container">
-                      <img src={amox} alt="" />
-                    </div>
-                    <div className="medicine-name">Paracetamol</div>
-                  </div>
-                  <div className="sec_two">
-                    <div>
-                      <button className="addBtn">
-                        <Plus className="plusIcon" />
-                      </button>
-                    </div>
-
-                    <div className="price">100</div>
-                    <div>
-                      <button className="minusBtn">
-                        <Minus className="minusIcon" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="sec_one">
-                    <div className="image_container">
-                      <img src={amox} alt="" />
-                    </div>
-                    <div className="medicine-name">Paracetamol</div>
-                  </div>
-                  <div className="sec_two">
-                    <div>
-                      <button className="addBtn">
-                        <Plus className="plusIcon" />
-                      </button>
-                    </div>
-
-                    <div className="price">100</div>
-                    <div>
-                      <button className="minusBtn">
-                        <Minus className="minusIcon" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="sec_one">
-                    <div className="image_container">
-                      <img src={amox} alt="" />
-                    </div>
-                    <div className="medicine-name">Paracetamol</div>
-                  </div>
-                  <div className="sec_two">
-                    <div>
-                      <button className="addBtn">
-                        <Plus className="plusIcon" />
-                      </button>
-                    </div>
-
-                    <div className="price">100</div>
-                    <div>
-                      <button className="minusBtn">
-                        <Minus className="minusIcon" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="sec_one">
-                    <div className="image_container">
-                      <img src={amox} alt="" />
-                    </div>
-                    <div className="medicine-name">Paracetamol</div>
-                  </div>
-                  <div className="sec_two">
-                    <div>
-                      <button className="addBtn">
-                        <Plus className="plusIcon" />
-                      </button>
-                    </div>
-
-                    <div className="price">100</div>
-                    <div>
-                      <button className="minusBtn">
-                        <Minus className="minusIcon" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="sec_one">
-                    <div className="image_container">
-                      <img src={amox} alt="" />
-                    </div>
-                    <div className="medicine-name">Paracetamol</div>
-                  </div>
-                  <div className="sec_two">
-                    <div>
-                      <button className="addBtn">
-                        <Plus className="plusIcon" />
-                      </button>
-                    </div>
-
-                    <div className="price">100</div>
-                    <div>
-                      <button className="minusBtn">
-                        <Minus className="minusIcon" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="centerBtn">
-                <button className="proceedBtn">Proceed To Bag</button>
-              </div>
-              <X className="closeBtn" onClick={() => setShowCart(false)} />
-            </div> */}
+          <div className="shopping-bag">
+            <ShoppingBag
+              id="sBagIcon"
+              onClick={() => navigate("/pharmacist/bag")}
+            />
+            <div className="items-InCart">{totalQuantity}</div>
           </div>
 
           <div className="pharmacist_profile">
@@ -254,7 +185,7 @@ const PharmacistNavbar = () => {
               </li>
 
               <li>
-                <a href="">
+                <a href="/pharmacist/settings">
                   <Settings /> Edit Profile
                 </a>
               </li>
@@ -266,8 +197,12 @@ const PharmacistNavbar = () => {
                   <div>My Sales</div>
                 </a>
               </li>
-              <li>
-                <a href="">
+              <li
+                onClick={() => {
+                  dispatch(setUserLogoutState());
+                }}
+              >
+                <a href="/pharmacist/login">
                   <LogOut id="navIcon" />
                   <div>Sign Out</div>
                 </a>

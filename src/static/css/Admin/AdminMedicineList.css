@@ -183,10 +183,7 @@
 
 @media screen and (max-width: 768px) {
   .adminMedicineList {
-    grid-template-columns: auto;
-  }
-  .adminMedicineList.open {
-    grid-template-columns: auto;
+    grid-template-columns: 58px auto;
   }
 }
 
@@ -296,6 +293,7 @@
   position: absolute;
   top: 0;
 }
+
 .adminMedicineList .deleteDialog img {
   width: 70px;
   height: 70px;

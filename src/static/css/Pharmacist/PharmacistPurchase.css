@@ -1,0 +1,315 @@
+.pharmacistSales {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 58px auto;
+  transition: all 0.4s ease;
+  background-color: #e4e4e4;
+}
+
+.pharmacistSales.open {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: 12rem auto;
+  transition: all 0.4s ease;
+  background-color: #e4e4e4;
+}
+
+.pharmacistSales .salesListMain {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.pharmacistSales .salesList {
+  padding: 0 1.5rem;
+}
+
+.pharmacistSales .salesList .heading {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 500;
+}
+
+.pharmacistSales .salesList .cardContainer {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  height: 75vh;
+}
+
+.pharmacistSales .salesList .cardNavbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.pharmacistSales .salesList .card_heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.pharmacistSales .salesList .search {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.pharmacistSales .salesList .search img {
+  width: 23px;
+}
+
+.pharmacistSales .salesList .search input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  padding: 0.2rem;
+  background-color: transparent;
+  width: 90%;
+}
+
+.pharmacistSales .salesList .card {
+  margin-top: 1rem;
+  overflow-x: scroll;
+}
+
+.pharmacistSales .salesList .titles {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 1rem 0;
+  background-color: #252525;
+  color: #ffffff;
+}
+
+.pharmacistSales .salesList .columnHead {
+  min-width: 12rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.pharmacistSales .salesList .datas {
+  display: flex;
+  flex-direction: column;
+}
+
+.pharmacistSales .salesList .data {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+.pharmacistSales .salesList .data:hover {
+  background-color: #25252518;
+  .batch {
+    color: #006270;
+  }
+}
+
+.pharmacistSales .salesList .data > div {
+  min-width: 12rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.pharmacistSales .salesList .actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pharmacistSales .salesList .status {
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+  border-radius: 15px;
+}
+
+.pharmacistSales .salesList .actions img {
+  cursor: pointer;
+}
+
+/* ---- Edit Sales ----- */
+.pharmacistSales .editSales {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.301);
+  inset: 0;
+  /* width: 100%;
+  height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pharmacistSales .editSales .container {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  height: 30vh;
+}
+.pharmacistSales .editSales .heading {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.pharmacistSales .editSales form select {
+  padding: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.pharmacistSales .editSales form button {
+  margin-top: 1.5rem;
+  font-size: 0.89rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #006270;
+}
+
+.pharmacistSales .editSales.hidden {
+  display: none;
+}
+
+/* ---- View Invoice ---- */
+
+.pharmacistSales .viewInvoice {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.301);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* width: 100%;
+    height: 100vh; */
+  display: flex;
+  align-items: center;
+}
+
+.pharmacistSales .viewInvoice.close {
+  display: none;
+}
+
+.pharmacistSales .viewInvoice .card {
+  margin: 0 auto;
+  width: 60%;
+  padding: 2rem;
+  margin-top: -6rem;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.pharmacistSales .viewInvoice .information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pharmacistSales .viewInvoice .reciever {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pharmacistSales .viewInvoice .reciever_heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.pharmacistSales .viewInvoice .reciever_name {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.pharmacistSales .viewInvoice .card_table {
+  margin-top: 2rem;
+  overflow-x: scroll;
+}
+
+.pharmacistSales .viewInvoice .titles {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 500;
+  padding: 1rem;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background-color: #006270;
+  color: white;
+  font-size: small;
+}
+
+.pharmacistSales .viewInvoice .titles > div {
+  min-width: 6rem;
+}
+
+.pharmacistSales .viewInvoice .datas .data {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #7f7f7f;
+}
+.pharmacistSales .viewInvoice .datas .data > div {
+  min-width: 6rem;
+}
+
+.pharmacistSales .viewInvoice .buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pharmacistSales .viewInvoice .totalCost {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.pharmacistSales .viewInvoice .totalCost > div {
+  min-width: 6rem;
+}
+
+.pharmacistSales .viewInvoice .closeIcon {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .pharmacistSales {
+    grid-template-columns: 58px auto;
+  }
+}

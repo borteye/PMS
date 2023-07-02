@@ -15,12 +15,27 @@
 .pharmacistSideBar .logo {
   font-size: 1.2rem;
   font-weight: 500;
-  padding: 0 1rem;
+  padding: 0 0.35rem;
+  display: flex;
+  align-items: center;
+}
+
+.pharmacistSideBar.close .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pharmacistSideBar .logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
 }
 
 .pharmacistSideBar.close .logo .logo-name {
   display: none;
   transition: all 0.4s ease;
+  white-space: nowrap;
 }
 
 .pharmacistSideBar .nav-links {
@@ -68,7 +83,7 @@
 }
 .pharmacistSideBar.close .nav-links li .sideBar-Icon {
   margin: 0.35rem auto;
-  /* border: 1px solid red; */
+  /*  */
 }
 
 .pharmacistSideBar .nav-links li .drop-links .sideBar-Icon {

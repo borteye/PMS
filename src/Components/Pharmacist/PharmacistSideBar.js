@@ -2,19 +2,17 @@ import React, { useState } from "react";
 import "../../static/css/Pharmacist/PharmacistSideBar.css";
 import { useSelector } from "react-redux";
 import { SelectPhActiveToggle } from "../../features/toggleSlice";
-import { SideBarData } from "../../Data/PharmacistData";
+import logo from "../../static/assets/phIcon.png";
 import {
   Command,
   ChevronDown,
   ChevronUp,
   Users,
-  UserPlus,
   PieChart,
   MessageSquare,
   Clipboard,
   Tag,
   Settings,
-  Trello,
 } from "feather-icons-react";
 
 const PharmacistSideBar = () => {
@@ -27,8 +25,8 @@ const PharmacistSideBar = () => {
       }
     >
       <div className="logo">
-        <img src="" alt="" />
-        <div className="logo-name">The Pharmacy</div>
+        <img src={logo} alt="" />
+        <div className="logo-name">PLUS Pharmacy</div>
       </div>
       <ul className="nav-links">
         <li>
@@ -83,7 +81,7 @@ const PharmacistSideBar = () => {
           </a>
           <ul className="sub-menu blank">
             <li>
-              <a className="link_name" href="">
+              <a className="link_name" href="/pharmacist/medicine-list">
                 Medicine List
               </a>
             </li>
@@ -96,7 +94,7 @@ const PharmacistSideBar = () => {
           </a>
           <ul className="sub-menu blank">
             <li>
-              <a className="link_name" href="">
+              <a className="link_name" href="/pharmacist/chatPage">
                 ChatPage
               </a>
             </li>
@@ -109,7 +107,7 @@ const PharmacistSideBar = () => {
           </a>
           <ul className="sub-menu blank">
             <li>
-              <a className="link_name" href="">
+              <a className="link_name" href="/pharmacist/invoice-list">
                 Invoices
               </a>
             </li>
@@ -122,20 +120,20 @@ const PharmacistSideBar = () => {
           </a>
           <ul className="sub-menu blank">
             <li>
-              <a className="link_name" href="">
+              <a className="link_name" href="/pharmacist/sales">
                 Sales
               </a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="">
+          <a href="/pharmacist/settings">
             <Settings className="sideBar-Icon" />
             <span className="link_name">Settings</span>
           </a>
           <ul className="sub-menu blank">
             <li>
-              <a className="link_name" href="">
+              <a className="link_name" href="/pharmacist/settings">
                 Settings
               </a>
             </li>
